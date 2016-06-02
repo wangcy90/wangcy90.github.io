@@ -308,7 +308,7 @@
 <p>cd blog<br>hexo clean<br>git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a> themes/next<br>vi _config.yml<br>修改theme为next<br>hexo g # 生成<br>ctrl+c #要把之前你启动的服务停掉<br>hexo s # 重新启动本地服务</p>
 </blockquote>
 <h2 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h2><p>这里是<a href="https://pages.github.com/" target="_blank" rel="external">Github Pages官方介绍</a>，一个github帐号唯一对应一个名为username/username.github.io的仓库用来存放个人博客，你可以通过<code>http://username.github.io</code>来访问你的博客。username和你的github的username对应。<br><strong>如何创建仓库我就不说了，不会的自行百度</strong></p>
-<h2 id="部署hero到github"><a href="#部署hero到github" class="headerlink" title="部署hero到github"></a>部署hero到github</h2><p>这里是<a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">官方的教程</a>，但在部署前我们要修改配置文件，在配置文件末尾加入下面的代码:</p>
+<h2 id="部署hexo到github"><a href="#部署hexo到github" class="headerlink" title="部署hexo到github"></a>部署hexo到github</h2><p>这里是<a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">官方的教程</a>，但在部署前我们要修改配置文件，在配置文件末尾加入下面的代码:</p>
 <blockquote>
 <p>deploy:<br>type: git<br>repo:<code>https://github.com/&#39;你的用户名&#39;/&#39;你的用户名&#39;.github.io.git</code>#这里其实就是你前面创建的那个仓库的地址，直接复制下来就好了<br>branch: master</p>
 </blockquote>
