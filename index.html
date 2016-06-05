@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="James Notes" type="application/atom+xml" />
+
 
 
 
@@ -204,6 +206,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -221,6 +233,148 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/05/Git-ssh服务器搭建/" itemprop="url">
+                  Git ssh服务器搭建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-05T14:20:40+08:00" content="2016-06-05">
+              2016-06-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/05/Git-ssh服务器搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/05/Git-ssh服务器搭建/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/06/05/Git-ssh服务器搭建/" class="leancloud_visitors" data-flag-title="Git ssh服务器搭建">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="原创文章，-转载请注明原作者及出处"><a href="#原创文章，-转载请注明原作者及出处" class="headerlink" title="原创文章， 转载请注明原作者及出处"></a>原创文章， 转载请注明原作者及出处</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><blockquote>
+<p>如果你的团队并不大，也用不着在浏览器中查看代码，只是用于团队间合并代码，那么一个简单的ssh服务器就足够了，通过本文你可以学会如何搭建一个简单的Git ssh服务器。<br>由于本人使用Mac，故以Mac上搭建Git ssh服务器来讲解，其它系统的服务器类似</p>
+</blockquote>
+<h2 id="创建Git用户"><a href="#创建Git用户" class="headerlink" title="创建Git用户"></a>创建Git用户</h2><blockquote>
+<p>到系统偏好设置→点击“用户与群组”，创建用户名为git的账户</p>
+</blockquote>
+<h2 id="开启ssh服务"><a href="#开启ssh服务" class="headerlink" title="开启ssh服务"></a>开启ssh服务</h2><blockquote>
+<p>在Mac中开启ssh，打开系统偏好设置”点击“共享”，并勾选远程登录<br>勾选了远程登录后会有两个选择，一是远程登陆到所有用户，二是选择可以远程登陆到指定用户。<br>这里我们选择远程登录到git账户</p>
+</blockquote>
+<h2 id="测试是否可以远程登录到git账户"><a href="#测试是否可以远程登录到git账户" class="headerlink" title="测试是否可以远程登录到git账户"></a>测试是否可以远程登录到git账户</h2><blockquote>
+<p>ssh git@服务器机器IP</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/05/Git-ssh服务器搭建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -321,12 +475,11 @@
 
       
         
-          
-            <h1 id="原创文章，-转载请注明原作者及出处"><a href="#原创文章，-转载请注明原作者及出处" class="headerlink" title="原创文章， 转载请注明原作者及出处"></a>原创文章， 转载请注明原作者及出处</h1><h2 id="Gitlab简介"><a href="#Gitlab简介" class="headerlink" title="Gitlab简介"></a>Gitlab简介</h2><blockquote>
+          <h1 id="原创文章，-转载请注明原作者及出处"><a href="#原创文章，-转载请注明原作者及出处" class="headerlink" title="原创文章， 转载请注明原作者及出处"></a>原创文章， 转载请注明原作者及出处</h1><h2 id="Gitlab简介"><a href="#Gitlab简介" class="headerlink" title="Gitlab简介"></a>Gitlab简介</h2><blockquote>
 <p>GitLab是一个使用 Ruby on Rails 开发的开源应用程序，与Github类似，能够浏览源代码，管理缺陷和注释，非常适合在团队内部使用。<br>GitLab服务有以下8部分组成：<br>1.Packages / Dependencies<br>2.Ruby<br>3.System Users<br>4.Database：MySql/PostgreSQL<br>5.Redis<br>6.GitLab<br>7.Web Server：Nginx/Apache<br>8.Firewall</p>
 </blockquote>
-<h2 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h2><p>1.此教程适用于centos6.x安装gitlab<br>2.使用root帐号登录系统，如果不是root登录使用su root切换为root<br>3.你也可以参考：<br><a href="https://github.com/gitlabhq/gitlab-recipes/tree/master/install/centos" title="官方centos文档" target="_blank" rel="external"> 官方centos文档 </a><br><a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/install/installation.md" title="官方Ubuntu文档" target="_blank" rel="external"> 官方Ubuntu文档 </a></p>
-<h2 id="安装Gitlab所需要的依赖"><a href="#安装Gitlab所需要的依赖" class="headerlink" title="安装Gitlab所需要的依赖"></a>安装Gitlab所需要的依赖</h2><h3 id="Add-EPEL-repository"><a href="#Add-EPEL-repository" class="headerlink" title="Add EPEL repository"></a>Add EPEL repository</h3><p><a href="https://fedoraproject.org/wiki/EPEL" target="_blank" rel="external">EPEL</a>即Extra Packages for Enterprise Linux，这个软件仓库里有很多非常常用的软件,而且是专门针对RHEL设计的，对RHEL标准yum源是一个很好的补充，完全免费使用，由Fedora项目维护，所以如果你使用的是RHEL，或者CentOS，Scientific等RHEL系的linux，可以非常放心的使用EPEL的yum源。</p>
+<h2 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h2><p>1.此教程适用于centos6.x安装gitlab<br>2.使用root帐号登录系统，如果不是root登录使用su root切换为root<br>3.你也可以参考：<br><a href="https://github.com/gitlabhq/gitlab-recipes/tree/master/install/centos" title="官方centos文档"> 官方centos文档 </a><br><a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/install/installation.md" title="官方Ubuntu文档"> 官方Ubuntu文档 </a></p>
+<h2 id="安装Gitlab所需要的依赖"><a href="#安装Gitlab所需要的依赖" class="headerlink" title="安装Gitlab所需要的依赖"></a>安装Gitlab所需要的依赖</h2><h3 id="Add-EPEL-repository"><a href="#Add-EPEL-repository" class="headerlink" title="Add EPEL repository"></a>Add EPEL repository</h3><p><a href="https://fedoraproject.org/wiki/EPEL">EPEL</a>即Extra Packages for Enterprise Linux，这个软件仓库里有很多非常常用的软件,而且是专门针对RHEL设计的，对RHEL标准yum源是一个很好的补充，完全免费使用，由Fedora项目维护，所以如果你使用的是RHEL，或者CentOS，Scientific等RHEL系的linux，可以非常放心的使用EPEL的yum源。</p>
 <p>下载并安装GPG key</p>
 <pre><code>wget -O /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6 https://www.fedoraproject.org/static/0608B895.txt
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
@@ -346,267 +499,12 @@ rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-puias
 rpm -qa gpg* 
 成功会输出：
 gpg-pubkey-41a40948-4ce19266
-</code></pre><h3 id="Install-the-required-tools-for-GitLab"><a href="#Install-the-required-tools-for-GitLab" class="headerlink" title="Install the required tools for GitLab"></a>Install the required tools for GitLab</h3><pre><code>yum -y update
-yum -y groupinstall &apos;Development Tools&apos;
-yum -y install readline readline-devel ncurses-devel gdbm-devel glibc-devel tcl-devel openssl-devel curl-devel expat-devel db4-devel byacc sqlite-devel libyaml libyaml-devel libffi libffi-devel libxml2 libxml2-devel libxslt libxslt-devel libicu libicu-devel system-config-firewall-tui redis sudo wget crontabs logwatch logrotate perl-Time-HiRes git cmake libcom_err-devel.i686 libcom_err-devel.x86_64 nodejs
-RHEL提示
-如果部分包不能安装，例如： eg. gdbm-devel, libffi-devel and libicu-devel，那么增加rhel6的安装源。
-yum-config-manager --enable rhel-6-server-optional-rpms
-提示：安装过程中，有些文件需要我们手动配置，如果你熟悉vim就是用vim配置，否则使用默认的编辑器。
-# Install vim and set as default editor
-yum -y install vim-enhanced
-update-alternatives --set editor /usr/bin/vim.basic
-# For reStructuredText markup language support, install required package:
-yum -y install python-docutils
-</code></pre><h3 id="Install-mail-server"><a href="#Install-mail-server" class="headerlink" title="Install mail server"></a>Install mail server</h3><pre><code>yum -y install postfix
-</code></pre><h3 id="Configure-the-default-editor"><a href="#Configure-the-default-editor" class="headerlink" title="Configure the default editor"></a>Configure the default editor</h3><pre><code>ln -s /usr/bin/vim /usr/bin/editor
-</code></pre><h2 id="Git安装"><a href="#Git安装" class="headerlink" title="Git安装"></a>Git安装</h2><pre><code>确保git的版本&gt;1.7.10
-git --version
-如果低于1.7.10
-yum -y remove git
-安装git的依赖程序
-yum install -y libcurl4-openssl-dev libexpat1-dev gettext libz-dev libssl-dev build-essential
-下载并安装git
-mkdir /tmp/git &amp;&amp; cd /tmp/git
-curl --progress https://www.kernel.org/pub/software/scm/git/git-2.4.3.tar.gz | tar xz
-cd git-2.4.3/
-./configure
-make
-make prefix=/usr/local install
-确认git安装到 $PATH
-which git
-提示：使用yum安装的git目录为：/usr/bin/git,下载安装的git目录为：/usr/local/bin/git，这个在之后gitlab.yml中需要修改。
-</code></pre><h2 id="Ruby安装"><a href="#Ruby安装" class="headerlink" title="Ruby安装"></a>Ruby安装</h2><pre><code>卸载掉旧版本的ruby
-yum remove ruby
-这里使用2.0以上的版本
-ruby -v
-mkdir /tmp/ruby &amp;&amp; cd /tmp/ruby
-curl --progress https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.3.tar.gz | tar xz
-cd ruby-2.2.3
-./configure --disable-install-rdoc
-make
-make prefix=/usr/local install
-检查ruby是否安装成功
-which ruby
-# /usr/local/bin/ruby
-替换Ruby gem源
-gem sources -l
-# 移除https://rubygems.org源
-gem sources --remove https://rubygems.org/
-# 增加http://ruby.taobao.org/源
-gem sources -a https://ruby.taobao.org/
-# 更新缓存
-gem sources -u
-安装Bundler
-gem install bundler --no-doc
-</code></pre><h2 id="为Gitlab创建git用户"><a href="#为Gitlab创建git用户" class="headerlink" title="为Gitlab创建git用户"></a>为Gitlab创建git用户</h2><pre><code>adduser --system --shell /bin/bash --comment &apos;GitLab&apos; --create-home --home-dir /home/git/ git
-重要：
-执行
-visudo
-找到
-Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin
-改为：
-Defaults    secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
-保存并退出
-```
-
-## 安装MySQL
-```Shell`
-安装：
-yum install -y mysql-server mysql-devel
-chkconfig mysqld on
-service mysqld start
-设置mysql root账号的密码：
-mysql_secure_installation
-用root登录mysql
-mysql -u root -p
-创建新用户和数据库给gitlab使用
-CREATE USER &apos;git&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;这里改为你自己的密码&apos;;
-SET storage_engine=INNODB;
-创建gitlab使用的数据库
-CREATE DATABASE IF NOT EXISTS`gitlabhq_productionDEFAULT CHARACTER SETutf8COLLATEutf8_unicode_ci`;
-给予gitlab用户权限
-GRANT SELECT, LOCK TABLES, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON`gitlabhq_production`.* TO &apos;git&apos;@&apos;localhost&apos;;
-退出：\q
-检查是否能用git帐号登录数据库
-sudo -u git -H mysql -u git -p -D gitlabhq_production
-退出：\q
-</code></pre><h2 id="配置Redis"><a href="#配置Redis" class="headerlink" title="配置Redis"></a>配置Redis</h2><pre><code>chkconfig redis on
-cp /etc/redis.conf /etc/redis.conf.orig
-sed &apos;s/^port .*/port 0/&apos; /etc/redis.conf.orig | sudo tee /etc/redis.conf
-echo &apos;unixsocket /var/run/redis/redis.sock&apos; | sudo tee -a /etc/redis.confecho -e &apos;unixsocketperm 0770&apos; | sudo tee -a /etc/redis.conf
-mkdir /var/run/redis
-chown redis:redis /var/run/redis
-chmod 755 /var/run/pedis
-重启redis：
-service redis restart
-将git用户添加到redis组
-usermod -aG redis git
-</code></pre><h2 id="Gitlab安装"><a href="#Gitlab安装" class="headerlink" title="Gitlab安装"></a>Gitlab安装</h2><pre><code>cd /home/git
-克隆GitLab并切换分支到8-2-stable（你可以选择更新的版本）
-sudo -u git -H git clone https://gitlab.com/gitlab-org/gitlab-ce.git -b 8-2-stable gitlab
-配置GitLab
-# Go to GitLab installation folder
-cd /home/git/gitlab
-# Copy the example GitLab config
-sudo -u git -H cp config/gitlab.yml.example config/gitlab.yml
-# Update GitLab config file, follow the directions at top of file
-# 不要忘记修改gitlab.yml中git的路径
-sudo -u git -H editor config/gitlab.yml
-# Copy the example secrets file
-sudo -u git -H cp config/secrets.yml.example config/secrets.yml
-sudo -u git -H chmod 0600 config/secrets.yml
-# Make sure GitLab can write to the log/ and tmp/ directories
-sudo chown -R git log/
-sudo chown -R git tmp/
-sudo chmod -R u+rwX,go-w log/
-sudo chmod -R u+rwX tmp/
-# Make sure GitLab can write to the tmp/pids/ and tmp/sockets/ directories
-sudo chmod -R u+rwX tmp/pids/
-sudo chmod -R u+rwX tmp/sockets/
-# Make sure GitLab can write to the public/uploads/ directory
-sudo chmod -R u+rwX  public/uploads
-# Change the permissions of the directory where CI build traces are stored
-sudo chmod -R u+rwX builds/
-# Change the permissions of the directory where CI artifacts are stored
-sudo chmod -R u+rwX shared/artifacts/
-# Copy the example Unicorn config
-sudo -u git -H cp config/unicorn.rb.example config/unicorn.rb
-# Find number of cores
-nproc
-# Enable cluster mode if you expect to have a high load instance
-# Set the number of workers to at least the number of cores
-# Ex. change amount of workers to 3 for 2GB RAM server
-sudo -u git -H editor config/unicorn.rb
-# Copy the example Rack attack config
-sudo -u git -H cp config/initializers/rack_attack.rb.example config/initializers/rack_attack.rb
-# Configure Git global settings for git user, used when editing via web editor
-sudo -u git -H git config --global core.autocrlf input
-# Configure Redis connection settings
-sudo -u git -H cp config/resque.yml.example config/resque.yml
-# Change the Redis socket path if you are not using the default Debian / Ubuntu configuration
-sudo -u git -H editor config/resque.yml
-</code></pre><p><strong>注：</strong></p>
-<blockquote>
-<p>这里如果提示没有路径，就手动创建文件夹</p>
-</blockquote>
-<h2 id="配置GitLab数据库"><a href="#配置GitLab数据库" class="headerlink" title="配置GitLab数据库"></a>配置GitLab数据库</h2><pre><code>sudo -u git cp config/database.yml.mysql config/database.yml
-# 修改其中username和password即可，其中密码就是上面数据库步骤中创建gitlab用户的密码
-sudo -u git -H editor config/database.yml
-# 确保该文件只有git账号有权限读取
-sudo -u git -H chmod o-rwx config/database.yml
-</code></pre><h2 id="安装GitLab需要的Gems"><a href="#安装GitLab需要的Gems" class="headerlink" title="安装GitLab需要的Gems"></a>安装GitLab需要的Gems</h2><pre><code>cd /home/git/gitlab
-接着修改Gemfile中的https://rubygems.org为https://ruby.taobao.org
-sudo -u git -H bundle install --deployment --without development test postgres aws kerberos
-</code></pre><h2 id="安装GitLabShell"><a href="#安装GitLabShell" class="headerlink" title="安装GitLabShell"></a>安装GitLabShell</h2><pre><code># Run the installation task for gitlab-shell (replace`REDIS_URL` if needed):
-sudo -u git -H bundle exec rake gitlab:shell:install REDIS_URL=unix:/var/run/redis/redis.sock RAILS_ENV=production
-# By default, the gitlab-shell config is generated from your main GitLab config.
-# You can review (and modify) the gitlab-shell config as follows:
-sudo -u git -H editor /home/git/gitlab-shell/config.yml
-# Ensure the correct SELinux contexts are set
-# Read http://wiki.centos.org/HowTos/Network/SecuringSSH
-restorecon -Rv /home/git/.ssh
-</code></pre><h2 id="安装gitlab-workhorse"><a href="#安装gitlab-workhorse" class="headerlink" title="安装gitlab-workhorse"></a>安装gitlab-workhorse</h2><p>gitlab-workhorse是用go语言写的一个small daemon，所以先要安装go语言编译器</p>
-<pre><code>yum install go
-接着安装gitlab-workhorse
-cd /home/git
-sudo -u git -H git clone https://gitlab.com/gitlab-org/gitlab-workhorse.git
-cd gitlab-workhorse
-sudo -u git -H git checkout 0.4.2
-sudo -u git -H make
-</code></pre><h2 id="初始化gitlab数据库并激活高级功能"><a href="#初始化gitlab数据库并激活高级功能" class="headerlink" title="初始化gitlab数据库并激活高级功能"></a>初始化gitlab数据库并激活高级功能</h2><pre><code># Go to GitLab installation folder
-cd /home/git/gitlab
-sudo -u git -H bundle exec rake gitlab:setup RAILS_ENV=production
-# Type &apos;yes&apos; to create the database tables.
-# 这里会生成你的管理员帐号和密码请牢记
-</code></pre><h2 id="安装启动脚本"><a href="#安装启动脚本" class="headerlink" title="安装启动脚本"></a>安装启动脚本</h2><pre><code>sudo cp lib/support/init.d/gitlab /etc/init.d/gitlab
-chmod +x /etc/init.d/gitlab
-chkconfig --add gitlab
-chkconfig gitlab on
-cp lib/support/logrotate/gitlab /etc/logrotate.d/gitlab
-</code></pre><h2 id="检测应用程序状态并编译Assets"><a href="#检测应用程序状态并编译Assets" class="headerlink" title="检测应用程序状态并编译Assets"></a>检测应用程序状态并编译Assets</h2><pre><code>sudo -u git -H bundle exec rake gitlab:env:info RAILS_ENV=production
-sudo -u git -H bundle exec rake assets:precompile RAILS_ENV=production
-编译完成后就可以启动gitlab了
-service gitlab start
-</code></pre><h2 id="Nginx安装"><a href="#Nginx安装" class="headerlink" title="Nginx安装"></a>Nginx安装</h2><pre><code>yum install yum-fastestmirror
-yum update
-yum -y install nginx
-查看nginx版本
-nginx -v
-</code></pre><p>如果不是最新版本使用下面的命令进行升级</p>
-<pre><code>cd /etc/yum.repos.d/ 
-vim nginx.repo
-</code></pre><p><strong>输入下面的文本</strong></p>
-<pre><code># nginx.repo    
-[nginx]  
-name=nginx repo  
-baseurl=http://nginx.org/packages/centos/6/$basearch/  
-gpgcheck=0  
-enabled=1
-</code></pre><p>升级nginx</p>
-<pre><code>yum update nginx
-</code></pre><p>配置Nginx</p>
-<pre><code>把nginx加入git用户组
-usermod -a -G git nginx
-chmod g+rx /home/git/
-chown -R git /etc/nginx 
-编辑/etc/nginx/nginx.conf，将 include /etc/nginx/conf.d/*.conf; 改为 include /etc/nginx/sites-enabled/*;，就是修改额外加载的配置文件目录
-修改nginx.conf文件总的user 为git
-Site Configuration
-mkdir /etc/nginx/sites-available
-mkdir /etc/nginx/sites-enabled
-cd /home/git/gitlab
-sudo cp lib/support/nginx/gitlab /etc/nginx/sites-available/gitlab
-sudo ln -s /etc/nginx/sites-available/gitlab /etc/nginx/sites-enabled/gitlab
-</code></pre><p>启动nginx服务</p>
-<pre><code>chkconfig nginx on
-service nginx start
-</code></pre><p><strong>注：</strong></p>
-<blockquote>
-<p>如果遇到Starting nginx: nginx: <a href="">emerg</a> bind() to 0.0.0.0:80 failed (98: Address already use)<br>编辑/etc/nginx/sites-available/gitlab，将 listen <a href="">::</a>:80 default_server; 改为 listen <a href="">::</a>:80 ipv6only=on default_server;</p>
-</blockquote>
-<h2 id="防火墙配置"><a href="#防火墙配置" class="headerlink" title="防火墙配置"></a>防火墙配置</h2><pre><code>lokkit -s http -s https -s ssh
-service iptables restart
-</code></pre><h2 id="完成安装"><a href="#完成安装" class="headerlink" title="完成安装"></a>完成安装</h2><blockquote>
-<p>现在可以在浏览器中访问<a href="http://localhost" target="_blank" rel="external">http://localhost</a><br>如果没有问题是可以访问成功的，如果有问题请看“问题记录”</p>
-</blockquote>
-<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><blockquote>
-<p>如果nginx出现502 Bad gateWay，可以去查看gitlab和nginx的日志</p>
-</blockquote>
-<pre><code># 这里有gitlab访问的日志
-cd /etc/log/nginx/
-</code></pre><blockquote>
-<p>如果日志中错误为：connect() to unix:/home/git/gitlab/tmp/sockets/gitlab.socket failed (13: Permission denied) while connecting to upstream,</p>
-</blockquote>
-<pre><code># 关闭selinux防火墙
-setenforce 0
-</code></pre><h2 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h2><p>有两台服务器，一台作为正常使用，一台作为备份服务器，两台机器的Gitlab版本必须相同，不然恢复的时候会很麻烦。<br>假设A为正常使用服务器，B为备份服务器。<br>1.使A机器能够无密码远程访问B机器</p>
-<pre><code>ssh-keygen -t rsa
-scp /root/.ssh/id_rsa.pub root@172.16.61.210:/root/.ssh/authorized_keys
-</code></pre><p>2.编写gitlab_backup.sh（名字可以随便起）脚本，下面是脚本中的代码</p>
-<pre><code># !/bin/bash
-### 将下面的IP替换为你自己备份服务器的IP
-REMOTE_SERVER_ADDR=192.168.1.210
-GITLABDIR=/home/git/gitlab
-GITLAB_BACKUP_DIR=${GITLABDIR}/tmp/backups/
-cd ${GITLABDIR}
-sudo -u git -H bundle exec rake gitlab:backup:create RAILS_ENV=production
-ERROR=$?
-if [ $ERROR -gt 0 ]; then
-exit $ERROR
-fi
-ssh ${REMOTE_SERVER_ADDR} &quot;rm -f ${GITLAB_BACKUP_DIR}/*.tar&quot;
-scp tmp/backups/*_gitlab_backup.tar root@${REMOTE_SERVER_ADDR}:/home/git/gitlab/tmp/backups/
-</code></pre><p>3.修改gitlab.yml中keep_time为18000（这个单位是秒，即将备份文件保留5小时,下次执行备份会自动删除）</p>
-<pre><code>cd /home/git/gitlab
-editor config/gitlab.yml
-</code></pre><p>4.将gitlab_backup.sh加入到crontab的定时任务中</p>
-<pre><code>crontab -e
-</code></pre><p>接着输入一下代码,我这里shell脚本的路径为/home/git/gitlab_backup.sh，你可以换成你的位置<br> 我设置的时间是每天凌晨2点执行,你可以百度crontab了解更多</p>
-<pre><code>0 2 * * * /home/git/gitlab_backup.sh
-</code></pre><p>5.脚本中用了sudo会提示执行sudo需要终端，所以编辑 /etc/sudoers 文件，将Default requiretty注释掉即可。</p>
-
-          
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/03/CentOS-6-x搭建Gitlab/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -713,45 +611,25 @@ editor config/gitlab.yml
 
       
         
-          
-            <h1 id="原创文章，-转载请注明原作者及出处"><a href="#原创文章，-转载请注明原作者及出处" class="headerlink" title="原创文章， 转载请注明原作者及出处"></a>原创文章， 转载请注明原作者及出处</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>本教程默认你已经注册了Github，默认你会使用终端命令</p>
+          <h1 id="原创文章，-转载请注明原作者及出处"><a href="#原创文章，-转载请注明原作者及出处" class="headerlink" title="原创文章， 转载请注明原作者及出处"></a>原创文章， 转载请注明原作者及出处</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>本教程默认你已经注册了Github，默认你会使用终端命令</p>
 <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>由于我自己使用的是Mac，所以只讲解Mac下的搭建方法<br><em>我系统的版本为10.11.5</em><br>Hexo需nodeJS及Git支持<br>1.安装nodeJS</p>
 <blockquote>
-<p>从<a href="https://nodejs.org/en/" target="_blank" rel="external">nodeJS官网</a>下载 LTS版本的pkg安装包，双击安装</p>
+<p>从<a href="https://nodejs.org/en/">nodeJS官网</a>下载 LTS版本的pkg安装包，双击安装</p>
 </blockquote>
 <p>2.Mac默认已经安装了Git，故不再讲解Git安装方法<br>3.安装Hero</p>
 <blockquote>
-<p>首先新建一个文件夹用于存放博客的文件，当然你也可以不建这个文件夹<br>mkdir hexo<br>进入创建好的文件夹我的文件夹为hexo<br>cd hexo<br>安装hexo cli<br>sudo npm install -g hexo-cli<br>安装完成后执行<br>hexo init blog<br>cd blog<br>npm install<br>hexo g # 或hexo generate<br>hexo s # 或hexo server<br>之后打开<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 就可以看到你的博客已经搭建完成，当然这只是本地的</p>
+<p>首先新建一个文件夹用于存放博客的文件，当然你也可以不建这个文件夹<br>mkdir hexo<br>进入创建好的文件夹我的文件夹为hexo<br>cd hexo<br>安装hexo cli<br>sudo npm install -g hexo-cli<br>安装完成后执行<br>hexo init blog<br>cd blog<br>npm install<br>hexo g # 或hexo generate<br>hexo s # 或hexo server<br>之后打开<a href="http://localhost:4000/">http://localhost:4000/</a> 就可以看到你的博客已经搭建完成，当然这只是本地的</p>
 </blockquote>
-<p>4.关于hexo一些命令请前往<a href="https://hexo.io/" target="_blank" rel="external">hexo官方文档</a>查看</p>
-<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>启动后你看到的是hero的默认主题landscape,我博客的主题是next<br>这里是<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">hexo支持的主题列表</a>，你可以选择你喜欢的，按照下面的方法更换<br><strong>接下来所有的命令都要在blog路径下执行，否则会不成功，具体怎么不成功，你到别的路径下执行了就知道了</strong></p>
+<p>4.关于hexo一些命令请前往<a href="https://hexo.io/">hexo官方文档</a>查看</p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>启动后你看到的是hero的默认主题landscape,我博客的主题是next<br>这里是<a href="https://github.com/hexojs/hexo/wiki/Themes">hexo支持的主题列表</a>，你可以选择你喜欢的，按照下面的方法更换<br><strong>接下来所有的命令都要在blog路径下执行，否则会不成功，具体怎么不成功，你到别的路径下执行了就知道了</strong></p>
 <blockquote>
-<p>cd blog<br>hexo clean<br>git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a> themes/next<br>vi _config.yml<br>修改theme为next<br>hexo g # 生成<br>ctrl+c #要把之前你启动的服务停掉<br>hexo s # 重新启动本地服务</p>
+<p>cd blog<br>hexo clean<br>git clone <a href="https://github.com/iissnan/hexo-theme-next">https://github.com/iissnan/hexo-theme-next</a> themes/next<br>vi _config.yml<br>修改theme为next<br>hexo g # 生成<br>ctrl+c #要把之前你启动的服务停掉<br>hexo s # 重新启动本地服务</p>
 </blockquote>
-<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><p><a href="http://theme-next.iissnan.com/theme-settings.html#categories-page" title="next主题配置" target="_blank" rel="external">NexT主题配置</a></p>
-<h2 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h2><p>这里是<a href="https://pages.github.com/" target="_blank" rel="external">Github Pages官方介绍</a>，一个github帐号唯一对应一个名为username/username.github.io的仓库用来存放个人博客，你可以通过<code>http://username.github.io</code>来访问你的博客。username和你的github的username对应。<br><strong>如何创建仓库我就不说了，不会的自行百度</strong></p>
-<h2 id="部署hexo到github"><a href="#部署hexo到github" class="headerlink" title="部署hexo到github"></a>部署hexo到github</h2><p>这里是<a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">官方的教程</a>，但在部署前我们要修改配置文件，在配置文件末尾加入下面的代码:</p>
-<blockquote>
-<p>deploy:<br>type: git<br>repo:<code>https://github.com/&#39;你的用户名&#39;/&#39;你的用户名&#39;.github.io.git</code>#这里其实就是你前面创建的那个仓库的地址，直接复制下来就好了<br>branch: master</p>
-</blockquote>
-<p>接下来我们还要安装一个用于deploy到github的扩展</p>
-<blockquote>
-<p>npm install hexo-deployer-git –save</p>
-</blockquote>
-<p>然后就是发布到github</p>
-<blockquote>
-<p>cd blog<br>hexo d</p>
-</blockquote>
-<h2 id="部署后的操作"><a href="#部署后的操作" class="headerlink" title="部署后的操作"></a>部署后的操作</h2><p>当部署完成后我们就可以通过之前说过的链接来访问了，同样你也可以绑定自己的域名，然后再根据你自己的主题去配置评论或者访问次数的东西，next主题配置这些东西可以查看<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">next官方文档</a></p>
-<h2 id="常用命令总结"><a href="#常用命令总结" class="headerlink" title="常用命令总结"></a>常用命令总结</h2><blockquote>
-<p>hexo g  #生成，一般写完博客执行该命令重新生成<br>hexo s  #启动本地服务<br>hexo d  #发布到github<br>hexo new “blog name”  #新建文章，执行该命令后会有一个地址，去markdown语法编辑那个文件就好了<br>hexo new page “page name“  #新建页面，比如生成tags页面</p>
-</blockquote>
-<p><strong>生成tags页面后需要编辑tags目录下的index.md文件</strong></p>
-<blockquote>
-<p>title: 标签<br>date: 2016-06-02 10:05:46<br>type: “tags”<br>comments: false</p>
-</blockquote>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/02/Hexo-Github-Pages个人博客搭建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -929,7 +807,7 @@ editor config/gitlab.yml
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -954,6 +832,13 @@ editor config/gitlab.yml
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">

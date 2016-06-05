@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="James Notes" type="application/atom+xml" />
+
 
 
 
@@ -92,7 +94,7 @@ GitLab是一个使用 Ruby on Rails 开发的开源应用程序，与Github类�
 <meta property="og:site_name" content="James Notes">
 <meta property="og:description" content="原创文章， 转载请注明原作者及出处Gitlab简介
 GitLab是一个使用 Ruby on Rails 开发的开源应用程序，与Github类似，能够浏览源代码，管理缺陷和注释，非常适合在团队内部使用。GitLab服务有以下8部分组成：1.Packages / Dependencies2.Ruby3.System Users4.Database：MySql/PostgreSQL5.Redis6.Gi">
-<meta property="og:updated_time" content="2016-06-05T02:20:45.000Z">
+<meta property="og:updated_time" content="2016-06-05T09:06:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS 6.x搭建Gitlab">
 <meta name="twitter:description" content="原创文章， 转载请注明原作者及出处Gitlab简介
@@ -203,6 +205,16 @@ GitLab是一个使用 Ruby on Rails 开发的开源应用程序，与Github类�
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            留言
           </a>
         </li>
       
@@ -343,7 +355,8 @@ rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-puias
 rpm -qa gpg* 
 成功会输出：
 gpg-pubkey-41a40948-4ce19266
-</code></pre><h3 id="Install-the-required-tools-for-GitLab"><a href="#Install-the-required-tools-for-GitLab" class="headerlink" title="Install the required tools for GitLab"></a>Install the required tools for GitLab</h3><pre><code>yum -y update
+</code></pre><a id="more"></a>
+<h3 id="Install-the-required-tools-for-GitLab"><a href="#Install-the-required-tools-for-GitLab" class="headerlink" title="Install the required tools for GitLab"></a>Install the required tools for GitLab</h3><pre><code>yum -y update
 yum -y groupinstall &apos;Development Tools&apos;
 yum -y install readline readline-devel ncurses-devel gdbm-devel glibc-devel tcl-devel openssl-devel curl-devel expat-devel db4-devel byacc sqlite-devel libyaml libyaml-devel libffi libffi-devel libxml2 libxml2-devel libxslt libxslt-devel libicu libicu-devel system-config-firewall-tui redis sudo wget crontabs logwatch logrotate perl-Time-HiRes git cmake libcom_err-devel.i686 libcom_err-devel.x86_64 nodejs
 RHEL提示
@@ -579,7 +592,7 @@ cd /etc/log/nginx/
 setenforce 0
 </code></pre><h2 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h2><p>有两台服务器，一台作为正常使用，一台作为备份服务器，两台机器的Gitlab版本必须相同，不然恢复的时候会很麻烦。<br>假设A为正常使用服务器，B为备份服务器。<br>1.使A机器能够无密码远程访问B机器</p>
 <pre><code>ssh-keygen -t rsa
-scp /root/.ssh/id_rsa.pub root@172.16.61.210:/root/.ssh/authorized_keys
+scp /root/.ssh/id_rsa.pub root@192.168.1.210:/root/.ssh/authorized_keys
 </code></pre><p>2.编写gitlab_backup.sh（名字可以随便起）脚本，下面是脚本中的代码</p>
 <pre><code># !/bin/bash
 ### 将下面的IP替换为你自己备份服务器的IP
@@ -615,6 +628,22 @@ editor config/gitlab.yml
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="James Wang WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -639,6 +668,10 @@ editor config/gitlab.yml
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/05/Git-ssh服务器搭建/" rel="prev" title="Git ssh服务器搭建">
+                Git ssh服务器搭建 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -710,7 +743,7 @@ editor config/gitlab.yml
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -735,6 +768,13 @@ editor config/gitlab.yml
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">
