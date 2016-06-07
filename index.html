@@ -339,12 +339,6 @@
 <h2 id="创建Git用户"><a href="#创建Git用户" class="headerlink" title="创建Git用户"></a>创建Git用户</h2><blockquote>
 <p>到系统偏好设置→点击“用户与群组”，创建用户名为git的账户</p>
 </blockquote>
-<h2 id="开启ssh服务"><a href="#开启ssh服务" class="headerlink" title="开启ssh服务"></a>开启ssh服务</h2><blockquote>
-<p>在Mac中开启ssh，打开系统偏好设置”点击“共享”，并勾选远程登录<br>勾选了远程登录后会有两个选择，一是远程登陆到所有用户，二是选择可以远程登陆到指定用户。<br>这里我们选择远程登录到git账户</p>
-</blockquote>
-<h2 id="测试是否可以远程登录到git账户"><a href="#测试是否可以远程登录到git账户" class="headerlink" title="测试是否可以远程登录到git账户"></a>测试是否可以远程登录到git账户</h2><blockquote>
-<p>ssh git@服务器机器IP</p>
-</blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/06/05/Git-ssh服务器搭建/#more" rel="contents">
               阅读全文 &raquo;
@@ -478,28 +472,6 @@
           <h1 id="原创文章，-转载请注明原作者及出处"><a href="#原创文章，-转载请注明原作者及出处" class="headerlink" title="原创文章， 转载请注明原作者及出处"></a>原创文章， 转载请注明原作者及出处</h1><h2 id="Gitlab简介"><a href="#Gitlab简介" class="headerlink" title="Gitlab简介"></a>Gitlab简介</h2><blockquote>
 <p>GitLab是一个使用 Ruby on Rails 开发的开源应用程序，与Github类似，能够浏览源代码，管理缺陷和注释，非常适合在团队内部使用。<br>GitLab服务有以下8部分组成：<br>1.Packages / Dependencies<br>2.Ruby<br>3.System Users<br>4.Database：MySql/PostgreSQL<br>5.Redis<br>6.GitLab<br>7.Web Server：Nginx/Apache<br>8.Firewall</p>
 </blockquote>
-<h2 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h2><p>1.此教程适用于centos6.x安装gitlab<br>2.使用root帐号登录系统，如果不是root登录使用su root切换为root<br>3.你也可以参考：<br><a href="https://github.com/gitlabhq/gitlab-recipes/tree/master/install/centos" title="官方centos文档"> 官方centos文档 </a><br><a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/install/installation.md" title="官方Ubuntu文档"> 官方Ubuntu文档 </a></p>
-<h2 id="安装Gitlab所需要的依赖"><a href="#安装Gitlab所需要的依赖" class="headerlink" title="安装Gitlab所需要的依赖"></a>安装Gitlab所需要的依赖</h2><h3 id="Add-EPEL-repository"><a href="#Add-EPEL-repository" class="headerlink" title="Add EPEL repository"></a>Add EPEL repository</h3><p><a href="https://fedoraproject.org/wiki/EPEL">EPEL</a>即Extra Packages for Enterprise Linux，这个软件仓库里有很多非常常用的软件,而且是专门针对RHEL设计的，对RHEL标准yum源是一个很好的补充，完全免费使用，由Fedora项目维护，所以如果你使用的是RHEL，或者CentOS，Scientific等RHEL系的linux，可以非常放心的使用EPEL的yum源。</p>
-<p>下载并安装GPG key</p>
-<pre><code>wget -O /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6 https://www.fedoraproject.org/static/0608B895.txt
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
-检查是否安装成功
-rpm -qa gpg* 成功后会输出：
-gpg-pubkey-0608b895-4bd22942
-接着安装epel-release-6-8.noarch包
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-提示：不要在意x86_64，在i686的机器上一样能使用。
-</code></pre><h3 id="Add-PUIAS-Computational-repository"><a href="#Add-PUIAS-Computational-repository" class="headerlink" title="Add PUIAS Computational repository"></a>Add PUIAS Computational repository</h3><p>PUIAS Linux是面向桌面和服务器的完整的操作系统，它靠编译Red Hat Enterprise Linux的源代码包来创建。除了这些上游的软件包外，该项目还提供一些其他的软件仓库：“Addons”包含了通常的Red Hat发行中未收入的额外软件包，“Computational”提供专门针对科学计算的软件，“Unsupported”则收入各种各样的测试性软件 包。该发行由美国普林斯顿 大学的高等研究所维护。</p>
-<pre><code>下载PUIAS repo
-wget -O /etc/yum.repos.d/PUIAS_6_computational.repo https://gitlab.com/gitlab-org/gitlab-recipes/raw/master/install/centos/PUIAS_6_computational.repo
-下载并安装GPG key
-wget -O /etc/pki/rpm-gpg/RPM-GPG-KEY-puias http://springdale.math.ias.edu/data/puias/6/x86_64/os/RPM-GPG-KEY-puias
-rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-puias
-检查是否安装成功
-rpm -qa gpg* 
-成功会输出：
-gpg-pubkey-41a40948-4ce19266
-</code></pre>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/06/03/CentOS-6-x搭建Gitlab/#more" rel="contents">
               阅读全文 &raquo;
@@ -612,19 +584,7 @@ gpg-pubkey-41a40948-4ce19266
       
         
           <h1 id="原创文章，-转载请注明原作者及出处"><a href="#原创文章，-转载请注明原作者及出处" class="headerlink" title="原创文章， 转载请注明原作者及出处"></a>原创文章， 转载请注明原作者及出处</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>本教程默认你已经注册了Github，默认你会使用终端命令</p>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>由于我自己使用的是Mac，所以只讲解Mac下的搭建方法<br><em>我系统的版本为10.11.5</em><br>Hexo需nodeJS及Git支持<br>1.安装nodeJS</p>
-<blockquote>
-<p>从<a href="https://nodejs.org/en/">nodeJS官网</a>下载 LTS版本的pkg安装包，双击安装</p>
-</blockquote>
-<p>2.Mac默认已经安装了Git，故不再讲解Git安装方法<br>3.安装Hero</p>
-<blockquote>
-<p>首先新建一个文件夹用于存放博客的文件，当然你也可以不建这个文件夹<br>mkdir hexo<br>进入创建好的文件夹我的文件夹为hexo<br>cd hexo<br>安装hexo cli<br>sudo npm install -g hexo-cli<br>安装完成后执行<br>hexo init blog<br>cd blog<br>npm install<br>hexo g # 或hexo generate<br>hexo s # 或hexo server<br>之后打开<a href="http://localhost:4000/">http://localhost:4000/</a> 就可以看到你的博客已经搭建完成，当然这只是本地的</p>
-</blockquote>
-<p>4.关于hexo一些命令请前往<a href="https://hexo.io/">hexo官方文档</a>查看</p>
-<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>启动后你看到的是hero的默认主题landscape,我博客的主题是next<br>这里是<a href="https://github.com/hexojs/hexo/wiki/Themes">hexo支持的主题列表</a>，你可以选择你喜欢的，按照下面的方法更换<br><strong>接下来所有的命令都要在blog路径下执行，否则会不成功，具体怎么不成功，你到别的路径下执行了就知道了</strong></p>
-<blockquote>
-<p>cd blog<br>hexo clean<br>git clone <a href="https://github.com/iissnan/hexo-theme-next">https://github.com/iissnan/hexo-theme-next</a> themes/next<br>vi _config.yml<br>修改theme为next<br>hexo g # 生成<br>ctrl+c #要把之前你启动的服务停掉<br>hexo s # 重新启动本地服务</p>
-</blockquote>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p>由于我自己使用的是Mac，所以只讲解Mac下的搭建方法<br><em>我系统的版本为10.11.5</em><br>Hexo需nodeJS及Git支持</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/06/02/Hexo-Github-Pages个人博客搭建/#more" rel="contents">
               阅读全文 &raquo;
