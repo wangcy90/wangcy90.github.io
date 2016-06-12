@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-07T09:10:11.000Z</updated>
+  <updated>2016-06-12T15:32:14.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub和GitLab多帐号下设置ssh key</title>
+    <link href="http://yoursite.com/2016/06/12/GitHub%E5%92%8CGitLab%E5%A4%9A%E5%B8%90%E5%8F%B7%E4%B8%8B%E8%AE%BE%E7%BD%AEssh-key/"/>
+    <id>http://yoursite.com/2016/06/12/GitHub和GitLab多帐号下设置ssh-key/</id>
+    <published>2016-06-12T14:32:51.000Z</published>
+    <updated>2016-06-12T15:32:14.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;原创文章，-转载请注明原作者及出处&quot;&gt;&lt;a href=&quot;#原创文章，-转载请注明原作者及出处&quot; class=&quot;headerlink&quot; title=&quot;原创文章， 转载请注明原作者及出处&quot;&gt;&lt;/a&gt;原创文章， 转载请注明原作者及出处&lt;/h1&gt;&lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;p&gt;今天被人问到了，所以研究一下&lt;/p&gt;
+&lt;h2 id=&quot;生成GitLab-ssh-key&quot;&gt;&lt;a href=&quot;#生成GitLab-ssh-key&quot; class=&quot;headerlink&quot; title=&quot;生成GitLab ssh key&quot;&gt;&lt;/a&gt;生成GitLab ssh key&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -C &amp;quot;GitLab邮箱&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在命令行中看到提示&lt;strong&gt;Enter file in which to save key&lt;/strong&gt;中输入GitLab的rsa_pub的名称，我这里输入为id_rsa_gitlab&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;生成GitHub-ssh-key&quot;&gt;&lt;a href=&quot;#生成GitHub-ssh-key&quot; class=&quot;headerlink&quot; title=&quot;生成GitHub ssh key&quot;&gt;&lt;/a&gt;生成GitHub ssh key&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -C &amp;quot;GitHub邮箱&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在命令行中看到提示&lt;strong&gt;Enter file in which to save key&lt;/strong&gt;中输入GitHub的rsa_pub的名称，我这里输入为id_rsa_github&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;将分别生成的ssh key拷贝到GitLab和GitHub上&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;创建config文件&quot;&gt;&lt;a href=&quot;#创建config文件&quot; class=&quot;headerlink&quot; title=&quot;创建config文件&quot;&gt;&lt;/a&gt;创建config文件&lt;/h2&gt;&lt;p&gt;在.ssh/目录下创建config文件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~
+cd .ssh
+vi config
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;在打开的文件中输入以下代码&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#GitLab
+#Host对应GitLab和GitHub的别名用来进行远程连接，你也可以换成别的名称
+Host GitLab
+#将下面的ip改为你自己的GitLab的ip或者域名
+    HostName 192.168.1.100
+    IdentityFile ~/.ssh/id_rsa_gitlab
+
+#GitHub
+Host GitHub
+    HostName github.com
+    IdentityFile ~/.ssh/id_rsa_github
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h2&gt;&lt;p&gt;在终端执行下面的命令，没有报错的话就说明设置成功了&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssh -T git@GitLab
+ssh -T git@GitHub
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;原创文章，-转载请注明原作者及出处&quot;&gt;&lt;a href=&quot;#原创文章，-转载请注明原作者及出处&quot; class=&quot;headerlink&quot; title=&quot;原创文章， 转载请注明原作者及出处&quot;&gt;&lt;/a&gt;原创文章， 转载请注明原作者及出处&lt;/h1&gt;&lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;p&gt;今天被人问到了，所以研究一下&lt;/p&gt;
+&lt;h2 id=&quot;生成GitLab-ssh-key&quot;&gt;&lt;a href=&quot;#生成GitLab-ssh-key&quot; class=&quot;headerlink&quot; title=&quot;生成GitLab ssh key&quot;&gt;&lt;/a&gt;生成GitLab ssh key&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -C &amp;quot;GitLab邮箱&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在命令行中看到提示&lt;strong&gt;Enter file in which to save key&lt;/strong&gt;中输入GitLab的rsa_pub的名称，我这里输入为id_rsa_gitlab&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Git" scheme="http://yoursite.com/categories/Git/"/>
+    
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Git ssh服务器搭建</title>
