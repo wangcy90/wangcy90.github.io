@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-12T15:32:14.000Z</updated>
+  <updated>2017-01-17T06:50:06.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,1531 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cordova学习之Command-line-interface</title>
+    <link href="http://yoursite.com/2017/01/17/Cordova%E5%AD%A6%E4%B9%A0%E4%B9%8BCommand-line-interface/"/>
+    <id>http://yoursite.com/2017/01/17/Cordova学习之Command-line-interface/</id>
+    <published>2017-01-17T04:45:52.000Z</published>
+    <updated>2017-01-17T06:50:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>以下所有步骤默认已安装node及平台SDK<br><a href="https://cordova.apache.org/docs/en/latest/reference/cordova-cli/index.html" target="_blank" rel="external">官方文档</a></p>
+</blockquote>
+<h3 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h3><pre><code>cordova &lt;command&gt; [options] -- [platformOpts]
+</code></pre><h3 id="全局命令"><a href="#全局命令" class="headerlink" title="全局命令"></a>全局命令</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">create</td>
+<td style="text-align:center">创建项目</td>
+</tr>
+<tr>
+<td style="text-align:center">help</td>
+<td style="text-align:center">帮助</td>
+</tr>
+<tr>
+<td style="text-align:center">telemetry</td>
+<td style="text-align:center">打开或关闭telemetry collection</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h3 id="项目命令"><a href="#项目命令" class="headerlink" title="项目命令"></a>项目命令</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">info</td>
+<td style="text-align:center">查看项目信息</td>
+</tr>
+<tr>
+<td style="text-align:center">requirements</td>
+<td style="text-align:center">检查并打印指定平台的所有安装要求</td>
+</tr>
+<tr>
+<td style="text-align:center">platform</td>
+<td style="text-align:center">管理项目平台</td>
+</tr>
+<tr>
+<td style="text-align:center">plugin</td>
+<td style="text-align:center">管理项目插件</td>
+</tr>
+<tr>
+<td style="text-align:center">prepare</td>
+<td style="text-align:center">将文件复制到平台中进行构建</td>
+</tr>
+<tr>
+<td style="text-align:center">compile</td>
+<td style="text-align:center">编译项目</td>
+</tr>
+<tr>
+<td style="text-align:center">clean</td>
+<td style="text-align:center">清除旧的编译</td>
+</tr>
+<tr>
+<td style="text-align:center">run</td>
+<td style="text-align:center">运行项目（包括prepare &amp;&amp; compile）</td>
+</tr>
+<tr>
+<td style="text-align:center">serve</td>
+<td style="text-align:center">使用本地Web服务器运行项目（包括prepare）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-d or –verbose</td>
+<td style="text-align:center">输出更详细的输出到你的shell。 通过调用cordova.on（’log’，function（）{}）或cordova.on（’warn’，function（）{}将cordova-cli用作节点模块，还可以订阅log和warn事件。 ）</td>
+</tr>
+<tr>
+<td style="text-align:center">-v or –version</td>
+<td style="text-align:center">打印cordova-cli安装版本</td>
+</tr>
+<tr>
+<td style="text-align:center">–no-update-notifier</td>
+<td style="text-align:center">禁用更新检查。 或在〜/ .config / configstore / update-notifier-cordova.json中设置“optOut”：true，或者使用任何值设置NO_UPDATE_NOTIFIER环境变量（请参阅update-notifier docs中的详细信息）。</td>
+</tr>
+<tr>
+<td style="text-align:center">–nohooks</td>
+<td style="text-align:center">禁止执行钩子（使用RegExp钩子模式作为参数）</td>
+</tr>
+<tr>
+<td style="text-align:center">–no-telemetry    Disable</td>
+<td style="text-align:center">禁用当前命令的遥测收集</td>
+</tr>
+</tbody>
+</table>
+<h3 id="平台特定选项"><a href="#平台特定选项" class="headerlink" title="平台特定选项"></a>平台特定选项</h3><p>某些命令具有特定于特定平台的选项（platformOpts）。 它们可以通过’ - ‘分隔符提供给cordova-cli，该分隔符停止cordova-lib模块中的命令解析，并通过其余选项让平台解析。</p>
+<pre><code># Create a cordova project
+cordova create myApp com.myCompany.myApp myApp
+cd myApp
+# Add camera plugin to the project and remember that in config.xml
+cordova plugin add cordova-plugin-camera --save
+# Add camera plugin to the project and remember that in config.xml. Use npm install to fetch.
+cordova plugin add cordova-plugin-camera --save --fetch
+# Add android platform to the project and remember that in config.xml
+cordova platform add android --save
+# Add android platform to the project and remember that in config.xml. Use npm install to fetch.
+cordova platform add android --save --fetch
+# Check to see if your system is configured for building android platform.
+cordova requirements android
+# Build the android and emit verbose logs.
+cordova build android --verbose
+# Run the project on the android platform.
+cordova run android
+# Build for android platform in release mode with specified signing parameters.
+cordova build android --release -- --keystore=&quot;..\android.keystore&quot; --storePassword=android --alias=mykey
+</code></pre><h3 id="cordova-create-command"><a href="#cordova-create-command" class="headerlink" title="cordova create command"></a>cordova create command</h3><p>Syntax</p>
+<pre><code>cordova create path [id [name [config]]] [options]
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">path</td>
+<td style="text-align:center">创建项目的目标路径</td>
+</tr>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">默认id为io.cordova.hellocordova</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">项目名称，默认为HelloCordova</td>
+</tr>
+<tr>
+<td style="text-align:center">config</td>
+<td style="text-align:center">JSON字符串，其键/值将包含在<path></path> /。cordova / config.json中</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–template</td>
+<td style="text-align:center">使用位于本地，NPM或GitHub中的自定义模板</td>
+</tr>
+<tr>
+<td style="text-align:center">–copy-from\</td>
+<td style="text-align:center">–src</td>
+</tr>
+<tr>
+<td style="text-align:center">–link-to</td>
+<td style="text-align:center">为指定www目录创建符号链接而不创建副本</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cordova-platform-command"><a href="#cordova-platform-command" class="headerlink" title="cordova platform command"></a>cordova platform command</h3><p>管理cordova平台 - 允许您添加，删除，更新，列出和检查更新。 运行添加或删除平台的命令会影响项目的platforms目录的内容</p>
+<p>Syntax</p>
+<pre><code>cordova {platform | platforms} [
+    add &lt;platform-spec&gt; [...] {--save | link=&lt;path&gt; | --fetch } |
+    {remove | rm}  platform [...] {--save | --fetch}|
+    {list | ls}  |
+    check |
+    save |
+    update ]
+</code></pre><h5 id="add-lt-platform-spec-gt-…"><a href="#add-lt-platform-spec-gt-…" class="headerlink" title="add &lt;platform-spec&gt; […]"></a>add &lt;platform-spec&gt; […]</h5><p>添加平台</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–save</td>
+<td style="text-align:center">使用<engine>标签安装它们后，将&lt;platform-spec&gt;保存到config.xml中</engine></td>
+</tr>
+<tr>
+<td style="text-align:center">–link=&lt;path&gt;</td>
+<td style="text-align:center">当&lt;platform-spec&gt;是本地路径时，直接链接平台库而不是制作其副本（支持因平台而异;对平台开发有用）</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">使用npm install获取平台并将其存储到应用程序node_modules目录中</td>
+</tr>
+</tbody>
+</table>
+<h5 id="remove-lt-platform-gt-…"><a href="#remove-lt-platform-gt-…" class="headerlink" title="remove &lt;platform&gt; […]"></a>remove &lt;platform&gt; […]</h5><p>移除平台</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–save</td>
+<td style="text-align:center">在删除指定的平台后，从config.xml中删除它们</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">使用npm卸载删除该平台，并将其从应用程序node_modules目录中删除</td>
+</tr>
+</tbody>
+</table>
+<h5 id="update-platform-…"><a href="#update-platform-…" class="headerlink" title="update platform […]"></a>update platform […]</h5><p>更新平台</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–save</td>
+<td style="text-align:center">更新config.xml中指定的版本</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">使用npm install获取平台并将其存储到应用程序node_modules目录中</td>
+</tr>
+</tbody>
+</table>
+<h5 id="list"><a href="#list" class="headerlink" title="list"></a>list</h5><p>列出所有已安装和可用的平台</p>
+<h5 id="check"><a href="#check" class="headerlink" title="check"></a>check</h5><p>列出可以通过cordova-cli平台更新的平台</p>
+<h5 id="save"><a href="#save" class="headerlink" title="save"></a>save</h5><p>保存添加到config.xml的所有平台的<platform-spec></platform-spec></p>
+<pre><code>#添加Android和ios平台的固定版本，并将下载的版本保存到config.xml
+cordova platform add android ios --save
+#添加Android和ios平台的固定版本，并将下载的版本保存到config.xml。 使用npm install安装到项目并将其存储在apps node_modules目录中
+cordova platform add android ios --save --fetch
+#添加android平台与semver版本^ 5.0.0并保存到config.xml
+cordova platform add android@^5.0.0 --save
+#通过将指定的git repo和checkout克隆到4.0.0标记来添加平台
+cordova platform add https://github.com/myfork/cordova-
+android.git#4.0.0
+#使用名为android的本地目录添加平台
+cordova platform add ../android
+#使用指定的tarball添加平台
+cordova platform add ../cordova-android.tgz
+#从项目和config.xml中删除android平台
+cordova platform rm android --save
+#从项目和config.xml中删除android平台。 运行npm uninstall将其从node_modules目录中删除
+cordova platform rm android --save --fetch
+#列出具有版本号的可用和已安装的平台。 这在报告问题时可用于查找版本号
+cordova platform ls
+#将当前添加到项目的所有平台的版本保存到config.xml中
+cordova platform save
+</code></pre><h3 id="cordova-plugin-command"><a href="#cordova-plugin-command" class="headerlink" title="cordova plugin command"></a>cordova plugin command</h3><p>Syntax</p>
+<pre><code>cordova {plugin | plugins} [
+    add &lt;plugin-spec&gt; [..] {--searchpath=&lt;directory&gt; | --noregistry | --link | --save | --browserify | --force | --fetch} |
+    {remove | rm} {&lt;pluginid&gt; | &lt;name&gt;} --save --fetch |
+    {list | ls} |
+    search [&lt;keyword&gt;] |
+    save |
+]
+</code></pre><h5 id="add-lt-plugin-spec-gt-…"><a href="#add-lt-plugin-spec-gt-…" class="headerlink" title="add &lt;plugin-spec&gt; […]"></a>add &lt;plugin-spec&gt; […]</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–searchpath &lt;directory&gt;</td>
+<td style="text-align:center">当通过ID查找插件时，在打开注册表之前查看此目录及其每个子目录。 可以指定多个搜索路径。 在基于* nix的系统中使用’：’作为分隔符，’;’ 为Windows</td>
+</tr>
+<tr>
+<td style="text-align:center">–noregistry</td>
+<td style="text-align:center">不要在注册表中搜索插件</td>
+</tr>
+<tr>
+<td style="text-align:center">–link</td>
+<td style="text-align:center">从本地路径安装时，创建符号链接，而不是复制文件。 文件链接的程度因平台而异。 有用的插件开发</td>
+</tr>
+<tr>
+<td style="text-align:center">–save</td>
+<td style="text-align:center">将&lt;plugin-spec&gt;作为插件元素的一部分保存到config.xml中</td>
+</tr>
+<tr>
+<td style="text-align:center">–browserify</td>
+<td style="text-align:center">在构建时使用browserify而不是运行时编译插件JS</td>
+</tr>
+<tr>
+<td style="text-align:center">–force</td>
+<td style="text-align:center">在版本6.1中引入。 强制从插件复制源文件，即使目标目录中已存在相同的文件</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">使用npm install获取插件并将其存储到应用程序node_modules目录中</td>
+</tr>
+</tbody>
+</table>
+<h5 id="remove-…"><a href="#remove-…" class="headerlink" title="remove  […]"></a>remove  […]</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–save</td>
+<td style="text-align:center">从config.xml中删除指定的插件</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">使用npm卸载删除插件，并将其从应用程序node_modules目录中删除</td>
+</tr>
+</tbody>
+</table>
+<h5 id="list-1"><a href="#list-1" class="headerlink" title="list"></a>list</h5><p>列出当前安装的插件</p>
+<h5 id="search-lt-keyword-gt-…"><a href="#search-lt-keyword-gt-…" class="headerlink" title="search [&lt;keyword&gt;] […]"></a>search [&lt;keyword&gt;] […]</h5><p><a href="http://plugins.cordova.io" target="_blank" rel="external">搜索查找与关键字匹配的插件</a></p>
+<h5 id="save-1"><a href="#save-1" class="headerlink" title="save"></a>save</h5><p>保存当前添加到项目中的所有插件的&lt;plugin-spec&gt;</p>
+<pre><code>#将cordova-plugin-camera和cordova-plugin-file添加到项目并保存到config.xml。 使用../plugins目录搜索插件
+cordova plugin add cordova-plugin-camera cordova-plugin-file --save --searchpath ../plugins
+#添加cordova插件摄像头与semver版本^ 2.0.0并保存到config.xml
+cordova plugin add cordova-plugin-camera@^2.0.0 --save
+#添加cordova插件摄像头与semver版本^ 2.0.0和npm安装它。 它将存储在node_modules目录中
+cordova plugin add cordova-plugin-camera@^2.0.0 --fetch
+#克隆指定的git repo，checkout到标签2.1.0，在plugin目录中找到plugin.xml，并将其添加到项目中。 将plugin-spec保存到config.xml
+cordova plugin add https://github.com/apache/cordova-plugin-camera.git#2.1.0:plugin --save
+#从指定的本地目录添加插件
+cordova plugin add ../cordova-plugin-camera
+#从指定的tarball文件添加插件
+cordova plugin add ../cordova-plugin-camera.tgz --save
+#从项目和config.xml中删除插件
+cordova plugin rm camera --save
+#从项目中删除插件和npm卸载它。 从node_modules目录中删除它
+cordova plugin rm camera --fetch
+#列出项目中安装的所有插件
+cordova plugin ls
+</code></pre><p>插件冲突：<br>添加在plugin.xml文件中使用edit-config标记的插件时，可能会发生冲突插件。 edit-config允许插件添加或替换XML元素的属性。</p>
+<p>如果多个插件尝试修改相同的XML元素，则此功能可能会导致应用程序出现问题。已经实现冲突检测以防止添加插件，所以一个插件不会尝试覆盖另一个插件的编辑配置更改。发现编辑配置中的冲突并且不会添加插件时，将抛出错误。错误消息将提及所有冲突必须解决之前，可以添加插件。解决编辑配置冲突的一个选项是更改受影响的插件的plugin.xml，以便它们不会修改相同的XML元素。另一个选项是使用–force标志强制添加插件。此选项应谨慎使用，因为它忽略冲突检测，并将覆盖与其他插件的所有冲突，因此可能会使其他插件处于坏状态。</p>
+<p>有关管理edit-config，解决冲突和示例的信息，请参阅<a href="https://cordova.apache.org/docs/en/latest/plugin_ref/spec.html#edit-config" target="_blank" rel="external">plugin.xml指南</a>。</p>
+<h3 id="cordova-prepare-command"><a href="#cordova-prepare-command" class="headerlink" title="cordova prepare command"></a>cordova prepare command</h3><p>Syntax</p>
+<pre><code>cordova prepare [&lt;platform&gt; [..]] [--browserify | --fetch]
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;platform&gt; [..]</td>
+<td style="text-align:center">准备的平台名称。 如果未指定，则将构建所有平台</td>
+</tr>
+<tr>
+<td style="text-align:center">–browserify</td>
+<td style="text-align:center">在构建时使用browserify而不是运行时编译插件JS</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">当恢复插件或平台时，fetch将npm安装缺少的模块</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cordova-compile-command"><a href="#cordova-compile-command" class="headerlink" title="cordova compile command"></a>cordova compile command</h3><p>cordova编译是cordova编译命令的一个子集。 它只执行编译步骤而不做准备。 通常调用cordova build而不是这个命令 - 但是，这个阶段对于允许使用钩子扩展很有用。</p>
+<p>Syntax</p>
+<pre><code>cordova build [&lt;platform&gt; [...]]
+    [--debug|--release]
+    [--device|--emulator|--target=&lt;targetName&gt;]
+    [--buildConfig=&lt;configfile&gt;]
+    [--browserify]
+    [-- &lt;platformOpts&gt;]
+</code></pre><h3 id="cordova-build-command"><a href="#cordova-build-command" class="headerlink" title="cordova build command"></a>cordova build command</h3><p>cordova的快捷方式编译+ cordova编译所有/指定的平台。 允许您为指定的平台构建应用程序。</p>
+<p>Syntax</p>
+<pre><code>cordova build [&lt;platform&gt; [...]]
+    [--debug|--release]
+    [--device|--emulator]
+    [--buildConfig=&lt;configfile&gt;]
+    [--browserify]
+    [-- &lt;platformOpts&gt;]
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;platform&gt; [..]</td>
+<td style="text-align:center">要构建的平台名称。 如果未指定，则将构建所有平台</td>
+</tr>
+<tr>
+<td style="text-align:center">–debug</td>
+<td style="text-align:center">执行调试生成。 这通常转换为正在构建的底层平台的调试模式</td>
+</tr>
+<tr>
+<td style="text-align:center">–release</td>
+<td style="text-align:center">执行发布版本。 这通常转换为正在构建的底层平台的释放模式</td>
+</tr>
+<tr>
+<td style="text-align:center">–device</td>
+<td style="text-align:center">为设备构建</td>
+</tr>
+<tr>
+<td style="text-align:center">–emulator</td>
+<td style="text-align:center">为模拟器构建</td>
+</tr>
+<tr>
+<td style="text-align:center">–buildConfig=&lt;configFile&gt;</td>
+<td style="text-align:center">默认值：cordova根目录中的build.json。 使用指定的构建配置文件。 build.json文件用于指定参数来自定义应用程序构建过程，尤其是与签名包相关</td>
+</tr>
+<tr>
+<td style="text-align:center">–browserify</td>
+<td style="text-align:center">在构建时使用browserify而不是运行时编译插件JS</td>
+</tr>
+<tr>
+<td style="text-align:center">–&lt;platformOpts&gt;</td>
+<td style="text-align:center">要提供特定于平台的选项，必须在 - separator之后包括它们。 查看平台指南文档的更多详细信息</td>
+</tr>
+</tbody>
+</table>
+<pre><code>#在调试模式下为Android和Windows平台构建部署到设备
+cordova build android windows --debug --device
+#在发布模式下为Android平台构建并使用指定的构建配置
+cordova build android --release --buildConfig=..\myBuildConfig.json
+#在发布模式下为Android平台构建，并将自定义平台选项传递到Android构建过程
+cordova build android --release -- --keystore=&quot;..\android.keystore&quot; --storePassword=android --alias=mykey
+</code></pre><h3 id="cordova-run-command"><a href="#cordova-run-command" class="headerlink" title="cordova run command"></a>cordova run command</h3><p>cordova的快捷方式编译+ cordova编译所有/指定的平台。 允许您为指定的平台构建应用程序。</p>
+<p>Syntax</p>
+<pre><code>cordova build [&lt;platform&gt; [...]]
+    [--debug|--release]
+    [--device|--emulator]
+    [--buildConfig=&lt;configfile&gt;]
+    [--browserify]
+    [-- &lt;platformOpts&gt;]
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;platform&gt; [..]</td>
+<td style="text-align:center">要运行的平台名称。 如果未指定，则将运行所有平台</td>
+</tr>
+<tr>
+<td style="text-align:center">–list</td>
+<td style="text-align:center">列出可用的目标。 除非指定，否则显示设备和仿真器部署目标</td>
+</tr>
+<tr>
+<td style="text-align:center">–debug</td>
+<td style="text-align:center">部署调试版本。 这是默认行为，除非指定了–release</td>
+</tr>
+<tr>
+<td style="text-align:center">–release</td>
+<td style="text-align:center">部署发布版本</td>
+</tr>
+<tr>
+<td style="text-align:center">–noprepare</td>
+<td style="text-align:center">跳过准备（在Cordova v6.2或更高版本中提供）</td>
+</tr>
+<tr>
+<td style="text-align:center">–nobuild</td>
+<td style="text-align:center">跳过构建</td>
+</tr>
+<tr>
+<td style="text-align:center">–device</td>
+<td style="text-align:center">部署到设备</td>
+</tr>
+<tr>
+<td style="text-align:center">–emulator</td>
+<td style="text-align:center">部署到模拟器</td>
+</tr>
+<tr>
+<td style="text-align:center">–target</td>
+<td style="text-align:center">部署到特定的目标仿真器/设备。 使用–list显示目标选项</td>
+</tr>
+<tr>
+<td style="text-align:center">–buildConfig=&lt;configFile&gt;</td>
+<td style="text-align:center">默认值：cordova根目录中的build.json。 使用指定的构建配置文件。 build.json文件用于指定参数来自定义应用程序构建过程，尤其是与签名包相关</td>
+</tr>
+<tr>
+<td style="text-align:center">–browserify</td>
+<td style="text-align:center">在构建时使用browserify而不是运行时编译插件JS</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;platformOpts&gt;</td>
+<td style="text-align:center">要提供特定于平台的选项，必须在 - separator之后包括它们。 查看平台指南文档的更多详细信息</td>
+</tr>
+</tbody>
+</table>
+<pre><code>#在Android平台模拟器上运行名为Nexus_5_API_23_x86的当前cordova项目的发布版本。 运行时使用spcified构建配置
+cordova run android --release --buildConfig=..\myBuildConfig.json --target=Nexus_5_API_23_x86
+#使用设备或模拟器（如果没有连接设备）在Android平台上运行当前cordova项目的调试版本。 跳过做建设
+cordova run android --nobuild
+#在ios设备上运行当前cordova项目的调试版本
+cordova run ios --device
+#列出所有连接的设备和可用于运行此应用程序的可用模拟器的名称
+cordova run ios --list
+</code></pre><h3 id="cordova-emulate-command"><a href="#cordova-emulate-command" class="headerlink" title="cordova emulate command"></a>cordova emulate command</h3><p>cordova运行 - 模拟器的别名。 启动模拟器而不是设备。 有关更多详细信息，请参阅cordova运行命令文档。</p>
+<h3 id="cordova-clean-command"><a href="#cordova-clean-command" class="headerlink" title="cordova clean command"></a>cordova clean command</h3><p>通过运行特定于平台的构建清理来清理指定平台或所有平台的构建工件。</p>
+<p>Syntax</p>
+<pre><code>cordova clean [&lt;platform&gt; [...]]
+</code></pre><h3 id="cordova-requirements-command"><a href="#cordova-requirements-command" class="headerlink" title="cordova requirements command"></a>cordova requirements command</h3><p>检查并打印指定平台的所有要求（或者如果没有指定，则添加到项目的所有平台）。 如果满足每个平台的所有要求，则退出代码为0，否则以非零代码退出。</p>
+<p>这在设置用于构建特定平台的机器时是有用的。</p>
+<p>Syntax</p>
+<pre><code>cordova requirements android
+</code></pre><h3 id="cordova-info-command"><a href="#cordova-info-command" class="headerlink" title="cordova info command"></a>cordova info command</h3><p>打印有用的信息，有助于提交错误报告和获得帮助。 在项目的基础上创建info.txt文件。</p>
+<p>Syntax</p>
+<pre><code>cordova info
+</code></pre><h3 id="cordova-serve-command"><a href="#cordova-serve-command" class="headerlink" title="cordova serve command"></a>cordova serve command</h3><p>使用指定的端口或默认值8000为www / assets运行本地Web服务器。访问项目：http：// HOST_IP：PORT / PLATFORM / www</p>
+<p>Syntax</p>
+<pre><code>cordova serve [port]
+</code></pre><h3 id="cordova-telemetry-command"><a href="#cordova-telemetry-command" class="headerlink" title="cordova telemetry command"></a>cordova telemetry command</h3><p>打开或关闭遥测收集。</p>
+<p>Syntax</p>
+<pre><code>cordova telemetry [STATE(on/off)]
+</code></pre><p>当第一次运行cordova时，将显示一个询问用户选择加入或退出的定时提示。 它持续30秒，之后，如果他没有提供任何答案，用户会自动选择退出。 在CI环境中，可以设置CI环境变量，这将防止显示提示。 遥测收集也可以通过使用–no-telemetry标志在单个命令上关闭。</p>
+<h3 id="cordova-help-command"><a href="#cordova-help-command" class="headerlink" title="cordova help command"></a>cordova help command</h3><p>显示语法摘要或特定命令的帮助。</p>
+<p>Syntax</p>
+<pre><code>cordova help [command]
+cordova [command] -h
+cordova -h [command]
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;以下所有步骤默认已安装node及平台SDK&lt;br&gt;&lt;a href=&quot;https://cordova.apache.org/docs/en/latest/reference/cordova-cli/index.html&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;Syntax&quot;&gt;&lt;a href=&quot;#Syntax&quot; class=&quot;headerlink&quot; title=&quot;Syntax&quot;&gt;&lt;/a&gt;Syntax&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;cordova &amp;lt;command&amp;gt; [options] -- [platformOpts]
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;全局命令&quot;&gt;&lt;a href=&quot;#全局命令&quot; class=&quot;headerlink&quot; title=&quot;全局命令&quot;&gt;&lt;/a&gt;全局命令&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;命令&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;create&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;创建项目&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;help&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;帮助&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;telemetry&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;打开或关闭telemetry collection&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+      <category term="Cordova" scheme="http://yoursite.com/categories/Cordova/"/>
+    
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cordova学习之Plugin.xml</title>
+    <link href="http://yoursite.com/2017/01/17/Cordova%E5%AD%A6%E4%B9%A0%E4%B9%8BPlugin-xml/"/>
+    <id>http://yoursite.com/2017/01/17/Cordova学习之Plugin-xml/</id>
+    <published>2017-01-17T02:28:34.000Z</published>
+    <updated>2017-01-17T04:43:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>以下所有步骤默认已安装node及平台SDK<br><a href="https://cordova.apache.org/docs/en/latest/plugin_ref/spec.html" target="_blank" rel="external">官方文档</a></p>
+</blockquote>
+<p>Plugin.xml文件定义了插件所需的结构和设置。 它有几个元素提供有关您的插件的详细信息。</p>
+<h3 id="plugin"><a href="#plugin" class="headerlink" title="plugin"></a>plugin</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">xmlns</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">插件命名空间，<a href="http://apache.org/cordova/ns/plugins/1.0。" target="_blank" rel="external">http://apache.org/cordova/ns/plugins/1.0。</a> 如果文档包含来自其他命名空间的XML（例如，在Android的情况下要添加到AndroidManifest.xml文件的标签），则这些命名空间也应包含在元素中。</td>
+</tr>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">插件的npm样式标识符。</td>
+</tr>
+<tr>
+<td style="text-align:center">version</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">插件的版本号。</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;plugin xmlns=&quot;http://apache.org/cordova/ns/plugins/1.0&quot;
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    id=&quot;my-plugin-id&quot;
+    version=&quot;1.0.2&quot;&gt;
+</code></pre><a id="more"></a>
+<h3 id="engines-and-engine"><a href="#engines-and-engine" class="headerlink" title="engines and engine"></a>engines and engine</h3><p>&lt;engines&gt;元素的子元素指定此插件支持的基于Apache Cordova的框架的版本。 对于目标项目不符合引擎约束的任何插件，CLI将中止非零代码。 如果未指定标签，CLI将尝试安装到指定的cordova项目目录中。</p>
+<blockquote>
+<p>注意：在Cordova 6.1.0+中，指定平台，插件和CLI依赖项的推荐位置是插件的package.json。 有关详细信息，请参阅指定Cordova依赖项。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">引擎名称；以下是支持的默认引擎：cordova、cordova-plugman、cordova-android、cordova-ios、cordova-blackberry10、cordova-wp8、cordova-windows、cordova-osx、windows-os,android-sdk (返回安装的最高Android api级别),windows-sdk (返回本机Windows SDK版本),apple-xcode (返回xcode版本),apple-ios (返回安装的最高iOS版本),apple-osx (返回OSX版本),blackberry-ndk (返回本机黑莓SDK版本),还可以指定除默认引擎之外的自定义框架。</td>
+</tr>
+<tr>
+<td style="text-align:center">version</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">版本号</td>
+</tr>
+<tr>
+<td style="text-align:center">scriptSrc</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">仅适用于自定义框架，指定plugman自定义框架的版本。 该文件最好在插件目录的顶级目录</td>
+</tr>
+<tr>
+<td style="text-align:center">platform</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">仅适用于自定义框架，指定自定义框架支持的平台，*号代表所有平台</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;engines&gt;</div><div class="line">   &lt;engine name=&quot;cordova&quot; version=&quot;&gt;=1.7.0&quot; /&gt;</div><div class="line">   &lt;engine name=&quot;cordova-android&quot; version=&quot;&gt;=1.8.0&quot; /&gt;</div><div class="line">   &lt;engine name=&quot;cordova-ios&quot; version=&quot;&gt;=1.7.1&quot; /&gt;</div><div class="line">   &lt;engine name=&quot;another_framework&quot; version=&quot;&gt;0.2.0&quot; platform=&quot;ios|android&quot; scriptSrc=&quot;path_to_another_framework_version&quot;/&gt;</div><div class="line">&lt;/engines&gt;</div></pre></td></tr></table></figure>
+<h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><p>指定插件的名称。</p>
+<h3 id="description"><a href="#description" class="headerlink" title="description"></a>description</h3><p>指定插件的描述。</p>
+<h3 id="author"><a href="#author" class="headerlink" title="author"></a>author</h3><p>指定插件作者。</p>
+<h3 id="keywords"><a href="#keywords" class="headerlink" title="keywords"></a>keywords</h3><p>包含用逗号分隔的关键字来描述插件。</p>
+<h3 id="license"><a href="#license" class="headerlink" title="license"></a>license</h3><p>此元素用于指定插件的许可证。</p>
+<h3 id="asset"><a href="#asset" class="headerlink" title="asset"></a>asset</h3><p>此元素用于列出要复制到Cordova应用程序的www目录中的文件或目录。 嵌套在&lt;platform&gt;元素中的任何&lt;asset&gt;元素指定平台特定的web资源。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">src</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">插件在插件目录下与plugin.xml的相对路径，如果src不存在，将停止安装</td>
+</tr>
+<tr>
+<td style="text-align:center">target</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">其中文件或目录应位于Cordova应用程序中，相对于www目录。 如果目标位置已存在文件，CLI将停止并反转安装过程，发出有关冲突的通知，并使用非零代码退出</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;!-- a single file, to be copied in the root directory --&gt;
+&lt;asset src=&quot;www/foo.js&quot; target=&quot;foo.js&quot; /&gt;
+&lt;!-- a directory, also to be copied in the root directory --&gt;
+&lt;asset src=&quot;www/foo&quot; tar
+</code></pre><p>asset也可以定向到子目    asset也可以定向到子目录。 这将在www目录中创建js / experimental目录，除非已经存在，并复制new-foo.js文件并将其重命名为foo.js.</p>
+<pre><code>&lt;asset src=&quot;www/new-foo.js&quot; target=&quot;js/experimental/foo.js&quot; /&gt;
+</code></pre><h3 id="js-module"><a href="#js-module" class="headerlink" title="js-module"></a>js-module</h3><p>大多数插件包括一个或多个JavaScript文件。 每个&lt;js-module&gt;标记对应一个JavaScript文件，并且防止插件的用户必须为每个文件添加&lt;script&gt;标记。 不要用cordova.define包装文件，因为它是自动添加的。 模块被封装在一个闭包中，模块，输出和require在范围内，这是AMD模块的正常情况。 &lt;platform&gt;中的嵌套&lt;js-module&gt;元素声明平台特定的JavaScript模块绑定。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">src</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">引用plugin目录中相对于plugin.xml文件的文件。 如果src不解析到现有文件，CLI将停止并反转安装，发出问题的通知，并退出与非零代码</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">提供模块名称的最后一部分。 它通常可以是任何你喜欢的，只有当你想使用cordova.require导入插件的其他部分在你的JavaScript代码。 &lt;js-module&gt;的模块名称是您的插件的id，后跟name的值</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;js-module src=&quot;socket.js&quot; name=&quot;Socket&quot;&gt;
+&lt;/js-module&gt;
+</code></pre><h3 id="clobbers"><a href="#clobbers" class="headerlink" title="clobbers"></a>clobbers</h3><p>允许在元素中。&lt;js-module&gt;用于指定插入module.exports的窗口对象下的命名空间。 你可以有任何多少&lt;clobbers&gt;，你喜欢。 将创建窗口上不可用的任何对象。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">target</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">module.exports的命名空间</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;js-module src=&quot;socket.js&quot; name=&quot;Socket&quot;&gt;
+  &lt;clobbers target=&quot;chrome.socket&quot; /&gt;
+&lt;/js-module&gt;
+</code></pre><p>这里，module.exports将作为window.chrome.socket插入到窗口对象中。</p>
+<h3 id="merges"><a href="#merges" class="headerlink" title="merges"></a>merges</h3><p>允许在&lt;js-module&gt;元素中。 用于指定window对象下的命名空间，其中module.exports与任何现有值合并。 如果任何键已经存在，则模块的版本将覆盖原始版本。 您可以根据需要拥有任意多个&lt;merges&gt;。 将创建窗口上不可用的任何对象。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">target</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">module.exports被合并到的命名空间</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;js-module src=&quot;socket.js&quot; name=&quot;Socket&quot;&gt;
+  &lt;merges target=&quot;chrome.socket&quot; /&gt;
+&lt;/js-module&gt;
+</code></pre><p>这里，module.exports与window.chrome.socket中的任何现有值合并。</p>
+<h3 id="runs"><a href="#runs" class="headerlink" title="runs"></a>runs</h3><p>允许在&lt;js-module&gt;元素中。 这意味着您的代码应该使用cordova.require指定，但不会安装在窗口对象上。 这在初始化模块，附加事件处理程序或其他时很有用。 您最多只能有一个&lt;runs/&gt;标记。 注意，包括&lt;runs/&gt;with&lt;clobbers/&gt;或&lt;merges/&gt;是多余的，因为它们也cordova.require你的模块。</p>
+<pre><code>&lt;js-module src=&quot;socket.js&quot; name=&quot;Socket&quot;&gt;
+  &lt;runs/&gt;
+&lt;/js-module&gt;
+</code></pre><h3 id="dependency"><a href="#dependency" class="headerlink" title="dependency"></a>dependency</h3><p>&lt;dependency&gt;标签允许您指定当前插件依赖的其他插件。 插件由其唯一的npm id或github url引用。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">插件id</td>
+</tr>
+<tr>
+<td style="text-align:center">url</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">插件的URL。 这应该引用一个git存储库，CLI尝试克隆。</td>
+</tr>
+<tr>
+<td style="text-align:center">commit</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">这是git checkout理解的任何git引用：分支或标签名称（例如master，0.3.1）或提交哈希(例如，975ddb228af811dd8bb37ed1dfd092a3d05295f9)</td>
+</tr>
+<tr>
+<td style="text-align:center">subdir</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">指定目标插件依赖关系作为git存储库的子目录存在。 这是有帮助的，因为它允许存储库包含几个相关的插件，每个都单独指定。如果你将一个<dependency>标签的url设置为“”。 并提供一个subdir，依赖插件从与指定&lt;dependency&gt;标签的父插件相同的本地或远程git存储库安装。注意，subdir总是指定一个相对于git仓库根目录的路径，而不是父插件。 这是真的，即使你安装插件与本地路径直接到它。CLI找到git存储库的根，然后从那里找到另一个插件。</dependency></td>
+</tr>
+<tr>
+<td style="text-align:center">version</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">版本</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;dependency id=&quot;cordova-plugin-someplugin&quot; url=&quot;https://github.com/myuser/someplugin&quot; commit=&quot;428931ada3891801&quot; subdir=&quot;some/path/here&quot; /&gt;
+&lt;dependency id=&quot;cordova-plugin-someplugin&quot; version=&quot;1.0.1&quot;&gt;
+</code></pre><h3 id="platform"><a href="#platform" class="headerlink" title="platform"></a>platform</h3><p>标识具有关联本机代码或需要修改其配置文件的平台。 使用此规范的工具可以识别支持的平台并将代码安装到Cordova项目中。 不带&lt;platform&gt;标签的插件假定为仅限JavaScript，因此可安装在任何平台上。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">平台名称</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;platform name=&quot;android&quot;&gt;
+  &lt;!-- android-specific elements --&gt;
+&lt;/platform&gt;
+</code></pre><h3 id="source-file"><a href="#source-file" class="headerlink" title="source-file"></a>source-file</h3><p>标识应安装到项目中的可执行源代码。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">src</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">文件相对于plugin.xml的位置。 如果找不到src文件，CLI将停止并反转安装，发出有关问题的通知，并使用非零代码退出</td>
+</tr>
+<tr>
+<td style="text-align:center">target-dir</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">要复制文件的目录，相对于Cordova项目的根目录。 在实践中，这对于基于Java的平台是最重要的，其中com.alunny.foo包中的文件必须位于com / alunny / foo目录中。 对于源目录不重要的平台，应忽略此属性</td>
+</tr>
+<tr>
+<td style="text-align:center">framework</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">Default: false iOS下，如果设置为true，还将指定的文件作为框架添加到项目</td>
+</tr>
+<tr>
+<td style="text-align:center">compiler-flags</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">iOS下，如果设置，则为特定源文件分配指定的编译器标志</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;!-- android --&gt;
+&lt;source-file src=&quot;src/android/Foo.java&quot; target-dir=&quot;src/com/alunny/foo&quot; /&gt;
+&lt;!-- ios --&gt;
+&lt;source-file src=&quot;src/ios/CDVFoo.m&quot; /&gt;
+&lt;source-file src=&quot;src/ios/someLib.a&quot; framework=&quot;true&quot; /&gt;
+&lt;source-file src=&quot;src/ios/someLib.a&quot; compiler-flags=&quot;-fno-objc-arc&quot; /&gt;
+</code></pre><h3 id="header-file"><a href="#header-file" class="headerlink" title="header-file"></a>header-file</h3><p>这就像&lt;source-file&gt;元素，但是专门用于诸如iOS和Android之类的平台，用于区分源文件，标题和资源。 Windows不支持此功能。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">src</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">文件相对于plugin.xml的位置。 如果找不到src文件，CLI将停止并反转安装，发出有关问题的通知，并使用非零代码退出</td>
+</tr>
+<tr>
+<td style="text-align:center">target</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">将文件复制到目录中的位置的路径</td>
+</tr>
+</tbody>
+</table>
+<p>iOS:</p>
+<pre><code>&lt;header-file src=&quot;CDVFoo.h&quot; /&gt;
+</code></pre><h3 id="resource-file"><a href="#resource-file" class="headerlink" title="resource-file"></a>resource-file</h3><p>这就像&lt;source-file&gt;元素，但是专门用于诸如iOS和Android之类的平台，用于区分源文件，标题和资源。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">src</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">文件相对于plugin.xml的位置。 如果找不到src文件，CLI将停止并反转安装，发出有关问题的通知，并使用非零代码退出</td>
+</tr>
+<tr>
+<td style="text-align:center">target</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">将文件复制到目录中的位置的路径</td>
+</tr>
+<tr>
+<td style="text-align:center">arch</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">windows允许值：x86，x64或ARM。表示只有在为指定体系结构构建时才应包括该文件</td>
+</tr>
+<tr>
+<td style="text-align:center">device-target</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">允许值：win（或windows），手机或所有。表示只有在为指定的目标设备类型构建时才应包括该文件</td>
+</tr>
+<tr>
+<td style="text-align:center">versions</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">表示只有在为与指定的版本字符串匹配的版本构建时才应包括该文件。 值可以是任何有效节点的语义版本范围字符串。</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<p>For Android:</p>
+<pre><code>&lt;resource-file src=&quot;FooPluginStrings.xml&quot; target=&quot;res/values/FooPluginStrings.xml&quot; /&gt;
+</code></pre><p>For Windows:</p>
+<pre><code>&lt;resource-file src=&quot;src/windows/win81/MobServices.pri&quot; target=&quot;win81/MobServices.pri&quot; device-target=&quot;windows&quot; versions=&quot;8.1&quot; arch=&quot;x64&quot;/&gt;
+</code></pre><h3 id="config-file"><a href="#config-file" class="headerlink" title="config-file"></a>config-file</h3><p>标识要修改的基于XML的配置文件，在该文档中应该进行修改，以及应该修改什么。 使用此元素测试修改的两种文件类型是xml和plist文件。 config-file元素只允许您将新的子元素附加到XML文档树。 子元素是要插入目标文档的XML文字。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">target</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">要修改的文件，以及相对于Cordova项目根目录的路径。 如果指定的文件不存在，该工具将忽略配置更改并继续安装。目标可以包括通配符（*）元素。 在这种情况下，CLI递归搜索项目目录结构并使用第一个匹配。在iOS上，配置文件相对于项目目录根目录的位置未知，因此指定config.xml的目标将解析为cordova-ios-project / MyAppName / config.xml</td>
+</tr>
+<tr>
+<td style="text-align:center">parent</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">引用要添加到配置文件的元素的父代的XPath选择器。如果使用绝对选择器，则可以使用通配符（ <em> ）指定根元素，例如/ </em> / plugins。 如果选择器未解析为指定文档的子代，则该工具将停止并反转安装过程，发出警告，并退出非零代码。对于plist文件，父对象确定应在哪个父键下插入指定的XML</td>
+</tr>
+<tr>
+<td style="text-align:center">after</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">接受的兄弟姐妹的优先列表，之后添加XML代码段。 用于指定文件中的更改，这些文件需要像这样的XML元素的严格排序</td>
+</tr>
+<tr>
+<td style="text-align:center">device-target</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">允许值：win，phone，all。适用于影响元名称package.appxmanifest时，此属性表示只有在为指定的目标设备类型构建时才应修改文件</td>
+</tr>
+<tr>
+<td style="text-align:center">versions</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">适用于影响元名称package.appxmanifest时，此属性表示仅对与指定版本字符串匹配的版本更改特定Windows版本的应用清单。 值可以是任何有效节点的语义版本范围字符串</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<p>For XML:</p>
+<pre><code>&lt;config-file target=&quot;AndroidManifest.xml&quot; parent=&quot;/manifest/application&quot;&gt;
+    &lt;activity android:name=&quot;com.foo.Foo&quot; android:label=&quot;@string/app_name&quot;&gt;
+        &lt;intent-filter&gt;
+        &lt;/intent-filter&gt;
+    &lt;/activity&gt;
+&lt;/config-file&gt;
+</code></pre><p>For plist:</p>
+<pre><code>&lt;config-file target=&quot;*-Info.plist&quot; parent=&quot;CFBundleURLTypes&quot;&gt;
+    &lt;array&gt;
+        &lt;dict&gt;
+            &lt;key&gt;PackageName&lt;/key&gt;
+            &lt;string&gt;$PACKAGE_NAME&lt;/string&gt;
+        &lt;/dict&gt;
+    &lt;/array&gt;
+&lt;/config-file&gt;
+</code></pre><p>For windows-specific attributes:</p>
+<pre><code>&lt;config-file target=&quot;package.appxmanifest&quot; parent=&quot;/Package/Capabilities&quot; versions=&quot;&lt;8.1.0&quot;&gt;
+    &lt;Capability Name=&quot;picturesLibrary&quot; /&gt;
+    &lt;DeviceCapability Name=&quot;webcam&quot; /&gt;
+&lt;/config-file&gt;
+&lt;config-file target=&quot;package.appxmanifest&quot; parent=&quot;/Package/Capabilities&quot; versions=&quot;&gt;=8.1.0&quot; device-target=&quot;phone&quot;&gt;
+    &lt;DeviceCapability Name=&quot;webcam&quot; /&gt;
+&lt;/config-file&gt;
+</code></pre><p>以上示例将设置8.1之前的平台（具体来说，Windows 8），以要求网络摄像头设备功能和picturesLibrary一般功能，并将网络摄像头设备功能仅应用于为Windows Phone构建的Windows 8.1项目。 Windows桌面8.1系统未修改。</p>
+<h3 id="framework"><a href="#framework" class="headerlink" title="framework"></a>framework</h3><p>标识插件依赖的框架（通常是操作系统/平台的一部分）。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">src</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">系统框架的名称或作为插件文件一部分的相对路径</td>
+</tr>
+<tr>
+<td style="text-align:center">custom</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">指示框架是否作为插件文件的一部分包含</td>
+</tr>
+<tr>
+<td style="text-align:center">weak</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">Default: false 指示框架是否应弱连接</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">指示要添加的框架的类型</td>
+</tr>
+<tr>
+<td style="text-align:center">parent</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">设置包含要向其中添加引用的子项目的目录的相对路径。 默认值，。，意味着应用程序项目</td>
+</tr>
+<tr>
+<td style="text-align:center">arch</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">允许值：x86，x64或ARM。表示只有在为指定体系结构构建时才应包括框架</td>
+</tr>
+<tr>
+<td style="text-align:center">device-target</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">允许值：win（或windows），手机或所有。表示只有在为指定的目标设备类型构建时才应包括框架</td>
+</tr>
+<tr>
+<td style="text-align:center">versions</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">表示只有在为与指定的版本字符串匹配的版本构建时才应包含框架。 值可以是任何有效节点的语义版本范围字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">target-dir</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">指示应将框架复制到其中的子目录。在实践中，这是最重要的，当插件包含不同的框架版本为不同的芯片架构或设备目标，但有相同的名称。 这允许您为每个框架版本指定不同的子文件夹，以使它们不会相互重叠</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<p>For iOS:</p>
+<pre><code>&lt;framework src=&quot;libsqlite3.dylib&quot; /&gt;
+&lt;framework src=&quot;social.framework&quot; weak=&quot;true&quot; /&gt;
+&lt;framework src=&quot;relative/path/to/my.framework&quot; custom=&quot;true&quot; /&gt;
+</code></pre><p>在Android上（以cordova-android@4.0.0为准），框架标签用于包括Maven依赖项，或包括捆绑的库项目。</p>
+<pre><code>&lt;!-- Depend on latest version of GCM from play services --&gt;
+&lt;framework src=&quot;com.google.android.gms:play-services-gcm:+&quot; /&gt;
+&lt;!-- Depend on v21 of appcompat-v7 support library --&gt;
+&lt;framework src=&quot;com.android.support:appcompat-v7:21+&quot; /&gt;
+&lt;!-- Depend on library project included in plugin --&gt;
+&lt;framework src=&quot;relative/path/FeedbackLib&quot; custom=&quot;true&quot; /&gt;
+</code></pre><p>框架也可以使用自定义.gradle文件子包含到主项目的.gradle文件中：</p>
+<pre><code>&lt;framework src=&quot;relative/path/rules.gradle&quot; custom=&quot;true&quot; type=&quot;gradleReference&quot; /&gt;
+</code></pre><h3 id="info"><a href="#info" class="headerlink" title="info"></a>info</h3><p>向用户提供的其他信息。 这在需要无法轻松自动化或超出CLI范围的额外步骤时非常有用。 当CLI安装插件时，此标签的内容将打印出来。</p>
+<pre><code>&lt;info&gt;
+You need to install __Google Play Services__ from the `Android Extras` section using the Android SDK manager (run `android`).
+
+You need to add the following line to the `local.properties`:
+
+android.library.reference.1=PATH_TO_ANDROID_SDK/sdk/extras/google/google_play_services/libproject/google-play-services_lib
+&lt;/info&gt;
+</code></pre><h3 id="hook"><a href="#hook" class="headerlink" title="hook"></a>hook</h3><p>表示当某些操作发生时（例如，在添加插件或调用平台准备逻辑之后），Cordova将调用的自定义脚本。 当您需要扩展默认Cordova功能时，这是有用的。 有关详细信息，请参阅Hooks指南。</p>
+<pre><code>&lt;hook type=&quot;after_plugin_install&quot; src=&quot;scripts/afterPluginInstall.js&quot; /&gt;
+</code></pre><h3 id="uses-permission"><a href="#uses-permission" class="headerlink" title="uses-permission"></a>uses-permission</h3><p>在某些情况下，插件可能需要根据目标应用程序进行配置更改。 例如，要在Android上注册C2DM，包ID为my-app-id的应用需要具有以下权限：</p>
+<pre><code>&lt;uses-permission android:name=&quot;my-app-id.permission.C2D_MESSAGE&quot;/&gt;
+</code></pre><p>在这种情况下，从plugin.xml文件插入的内容不是提前知道的，变量可以用美元符号后跟一系列大写字母，数字或下划线来表示。 对于上面的示例，plugin.xml文件将包含此标记：</p>
+<pre><code>&lt;uses-permission android:name=&quot;$PACKAGE_NAME.permission.C2D_MESSAGE&quot;/&gt;
+</code></pre><p>CLI用指定的值替换变量引用，如果找不到，则替换为空字符串。 可以检测变量引用的值（在这种情况下，从AndroidManifest.xml文件）或由工具的用户指定; 确切的过程取决于特定的工具。</p>
+<p>Plugman可以请求用户指定插件的必需变量。 例如，C2M和Google地图的API密钥可以指定为命令行参数：</p>
+<pre><code>plugman --platform android --project /path/to/project --plugin name|git-url|path --variable API_KEY=!@CFATGWE%^WGSFDGSDFW$%^#$%YTHGsdfhsfhyer56734
+</code></pre><p>应保留某些变量名，如$ PACKAGE_NAME。 这是包的反向域样式唯一标识符，对应于iOS上的CFBundleIdentifier或AndroidManifest.xml文件中顶级清单元素的包属性。</p>
+<h3 id="preference"><a href="#preference" class="headerlink" title="preference"></a>preference</h3><p>如上一节所示，有时插件可能需要用户为其变量指定值。 为了使这些变量成为必须的，&lt;platform&gt;标签需要包含&lt;preference&gt;标签。 CLI检查是否传递这些所需的首选项。如果不是，它应该警告用户如何使用非零代码传递和退出变量。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">变量的名称</td>
+</tr>
+<tr>
+<td style="text-align:center">default</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">变量的默认值。 如果存在，将使用其值，并且在用户不输入任何值的情况下不会发出错误</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;preference name=&quot;API_KEY&quot; default=&quot;default-value&quot; /&gt;
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;以下所有步骤默认已安装node及平台SDK&lt;br&gt;&lt;a href=&quot;https://cordova.apache.org/docs/en/latest/plugin_ref/spec.html&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Plugin.xml文件定义了插件所需的结构和设置。 它有几个元素提供有关您的插件的详细信息。&lt;/p&gt;
+&lt;h3 id=&quot;plugin&quot;&gt;&lt;a href=&quot;#plugin&quot; class=&quot;headerlink&quot; title=&quot;plugin&quot;&gt;&lt;/a&gt;plugin&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;属性&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;类型&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;xmlns&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;string&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;插件命名空间，&lt;a href=&quot;http://apache.org/cordova/ns/plugins/1.0。&quot;&gt;http://apache.org/cordova/ns/plugins/1.0。&lt;/a&gt; 如果文档包含来自其他命名空间的XML（例如，在Android的情况下要添加到AndroidManifest.xml文件的标签），则这些命名空间也应包含在元素中。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;id&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;string&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;插件的npm样式标识符。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;version&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;string&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;插件的版本号。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;plugin xmlns=&amp;quot;http://apache.org/cordova/ns/plugins/1.0&amp;quot;
+    xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
+    id=&amp;quot;my-plugin-id&amp;quot;
+    version=&amp;quot;1.0.2&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Cordova" scheme="http://yoursite.com/categories/Cordova/"/>
+    
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cordova学习之config.xml</title>
+    <link href="http://yoursite.com/2017/01/17/Cordova%E5%AD%A6%E4%B9%A0%E4%B9%8Bconfig-xml/"/>
+    <id>http://yoursite.com/2017/01/17/Cordova学习之config-xml/</id>
+    <published>2017-01-17T02:04:53.000Z</published>
+    <updated>2017-01-17T02:23:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>以下所有步骤默认已安装node及平台SDK</p>
+</blockquote>
+<p>在项目的根目录下的config.xml文件是Cordoval应用程序的行为的许多方面的全局配置文件。这个平台无关的XML文件是基于W3C的打包Web应用程序（窗口小部件）规范的安排，并扩展到指定的核心cordovaAPI功能，插件和特定于平台的设置，包含了调用本地API，自定义插件，屏幕Orientation，Fullscreen等关键配置。</p>
+<p><a href="https://cordova.apache.org/docs/en/latest/config_ref/index.html" target="_blank" rel="external">官方文档</a></p>
+<h3 id="widget"><a href="#widget" class="headerlink" title="widget"></a>widget</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">指定应用程序的反向域标识符和版本的主/次/补丁符号表示其完整版本号</td>
+</tr>
+<tr>
+<td style="text-align:center">version</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">在主要/次要/补丁符号表示的完整版本号</td>
+</tr>
+<tr>
+<td style="text-align:center">versionCode</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">另一版本为Android。有关详细信息，请参阅的Android版本</td>
+</tr>
+<tr>
+<td style="text-align:center">ios-CFBundleVersion</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">对应xcode project中CFBundleVersion</td>
+</tr>
+<tr>
+<td style="text-align:center">osx-CFBundleVersion</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">对应xcode project中CFBundleVersion</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<p>例如：</p>
+<pre><code>&lt;widget id=&quot;io.cordova.hellocordova&quot; version=&quot;0.0.1&quot; xmlns=&quot;http://www.w3.org/ns/widgets&quot; xmlns:cdv=&quot;http://cordova.apache.org/ns/1.0&quot;&gt;&lt;/widget&gt;
+&lt;!-- Android --&gt;
+&lt;widget versionCode=&quot;0.1.3&quot;&gt;&lt;/widget&gt;
+&lt;!-- iOS --&gt;
+&lt;widget ios-CFBundleVersion=&quot;0.1.3&quot;&gt;&lt;/widget&gt;
+&lt;!-- Windows --&gt;
+&lt;widget packageVersion=&quot;0.1.3&quot;&gt;&lt;/widget&gt;
+&lt;!-- OS X --&gt;
+&lt;widget osx-CFBundleVersion=&quot;0.1.3&quot;&gt;&lt;/widget&gt;
+</code></pre><h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><p>指定应用程序的正式名称。</p>
+<pre><code>&lt;widget ...&gt;    
+  &lt;name&gt;HelloCordova&lt;/name&gt;
+&lt;/widget&gt;
+</code></pre><h3 id="description"><a href="#description" class="headerlink" title="description"></a>description</h3><p>指定可在APPStore出现的应用程序描述信息。</p>
+<pre><code>&lt;widget ...&gt; 
+   &lt;description&gt;A sample Apache Cordova application&lt;/description&gt;
+&lt;/widget&gt;
+</code></pre><h3 id="author"><a href="#author" class="headerlink" title="author"></a>author</h3><p>指定可在应用商店上市出现的开发者信息。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">email</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">开发者电子邮件</td>
+</tr>
+<tr>
+<td style="text-align:center">href</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">开发者的网站</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;widget ...&gt; 
+    &lt;author email=&quot;dev@cordova.apache.org&quot; href=&quot;http://cordova.io&quot;&gt;&lt;/author&gt;
+&lt;/widget&gt;
+</code></pre><h3 id="content"><a href="#content" class="headerlink" title="content"></a>content</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">src</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">定义app目录中的应用程序的起始页面。默认index.html</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;widget ...&gt;    
+    &lt;content src=&quot;startPage.html&quot;&gt;&lt;/content&gt;
+&lt;/widget&gt;
+</code></pre><h3 id="access"><a href="#access" class="headerlink" title="access"></a>access</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">origin</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">定义可访问外部域，默认允许访问任何服务器。详细请看<a href="http://cordova.axuer.com/docs/zh-cn/latest/reference/cordova-plugin-whitelist/index.html" target="_blank" rel="external">域白名单指南</a></td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;widget ...&gt;    
+  &lt;access origin=&quot;*&quot;&gt;&lt;/content&gt;
+&lt;/widget&gt;
+
+&lt;widget ...&gt;    
+    &lt;access origin=&quot;http://google.com&quot;&gt;&lt;/content&gt;
+&lt;/widget&gt;
+</code></pre><h3 id="allow-navigation"><a href="#allow-navigation" class="headerlink" title="allow-navigation"></a>allow-navigation</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">href</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">定义加载远程的URL网址</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;allow-navigation href=&quot;http://*/*&quot; /&gt;
+&lt;allow-navigation href=&quot;https://*/*&quot; /&gt;
+</code></pre><h3 id="allow-intent"><a href="#allow-intent" class="headerlink" title="allow-intent"></a>allow-intent</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">href</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">定义调用其他应用的urlScheme</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;allow-intent href=&quot;http://*/*&quot; /&gt;
+&lt;allow-intent href=&quot;https://*/*&quot; /&gt;
+&lt;allow-intent href=&quot;tel:*&quot; /&gt;
+&lt;allow-intent href=&quot;sms:*&quot; /&gt;
+</code></pre><h3 id="engine"><a href="#engine" class="headerlink" title="engine"></a>engine</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">要恢复的平台的名称</td>
+</tr>
+<tr>
+<td style="text-align:center">spec</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">要恢复的平台版本</td>
+</tr>
+</tbody>
+</table>
+<pre><code>&lt;engine name=&quot;android&quot; spec=&quot;^4.0.0&quot; /&gt;
+</code></pre><h3 id="preference"><a href="#preference" class="headerlink" title="preference"></a>preference</h3><pre><code>&lt;preference name=&quot;EnableViewportScale&quot; value=&quot;true&quot;/&gt; 
+&lt;preference name=&quot;MediaPlaybackAllowsAirPlay&quot; value=&quot;false&quot;/&gt;    
+&lt;preference name=&quot;MediaPlaybackRequiresUserAction&quot; value=&quot;true&quot;/&gt;
+&lt;preference name=&quot;AllowInlineMediaPlayback&quot; value=&quot;true&quot;/&gt;
+&lt;preference name=&quot;BackupWebStorage&quot; value=&quot;local&quot;/&gt;
+&lt;preference name=&quot;TopActivityIndicator&quot; value=&quot;white&quot;/&gt;
+&lt;preference name=&quot;SuppressesIncrementalRendering&quot; value=&quot;true&quot;/&gt;
+</code></pre><h3 id="param"><a href="#param" class="headerlink" title="param"></a>param</h3><p>用来指定什么某些插件参数，如：什么包检索来自插件代码，并确定是否插件代码是网页视图的初始化期间进行初始化。</p>
+<pre><code>&lt;!-- Here is how to specify the Device API for Android projects --&gt;
+&lt;feature name=&quot;Device&quot;&gt;    
+  &lt;param name=&quot;android-package&quot; value=&quot;org.apache.cordova.device.Device&quot; /&gt;
+&lt;/feature&gt;
+&lt;!-- Here&apos;s how the element appears for iOS projects --&gt;
+&lt;feature name=&quot;Device&quot;&gt;   
+   &lt;param name=&quot;ios-package&quot; value=&quot;CDVDevice&quot; /&gt;    
+   &lt;param name=&quot;onload&quot; value=&quot;true&quot; /&gt;
+&lt;/feature&gt;
+&lt;!-- Here&apos;s how the element appears for OS X projects --&gt;
+&lt;feature name=&quot;Device&quot;&gt;    
+  &lt;param name=&quot;osx-package&quot; value=&quot;CDVDevice&quot; /&gt;  
+  &lt;param name=&quot;onload&quot; value=&quot;true&quot; /&gt;
+&lt;/feature&gt;
+</code></pre><h3 id="platform"><a href="#platform" class="headerlink" title="platform"></a>platform</h3><p>当使用CLI来构建应用程序，有时需要以指定特定于特定的平台的偏好或其他元素。使用元素来指定应该只出现在一个 platform-specific -config.xml文件中的配置。</p>
+<pre><code>&lt;platform name=&quot;android&quot;&gt;  
+    &lt;preference name=&quot;Fullscreen&quot; value=&quot;true&quot; /&gt;  
+&lt;/platform&gt;
+</code></pre><h3 id="hook"><a href="#hook" class="headerlink" title="hook"></a>hook</h3><p>表示将由cordova当某些行为发生时被调用自定义脚本（例如，插件添加或平台准备逻辑后调用）。当你需要扩展默认Cordova的功能。详见<a href="https://cordova.apache.org/docs/en/latest/guide/appdev/hooks/index.html" target="_blank" rel="external">Hooks Guide</a>获取更多信息。</p>
+<pre><code>&lt;hook type=&quot;after_plugin_install&quot; src=&quot;scripts/afterPluginInstall.js&quot; /&gt;
+</code></pre><h4 id="Smaple"><a href="#Smaple" class="headerlink" title="Smaple"></a>Smaple</h4><pre><code>&lt;?xml version=&apos;1.0&apos; encoding=&apos;utf-8&apos;?&gt;
+&lt;widget id=&quot;io.cordova.hellocordova&quot; version=&quot;0.0.1&quot; xmlns=&quot;http://www.w3.org/ns/widgets&quot; xmlns:cdv=&quot;http://cordova.apache.org/ns/1.0&quot;&gt;   
+   &lt;name&gt;HelloCordova&lt;/name&gt;    
+    &lt;description&gt;        
+        A sample Apache Cordova application that responds to the deviceready event.   
+    &lt;/description&gt;    
+    &lt;author email=&quot;dev@cordova.apache.org&quot; href=&quot;http://cordova.io&quot;&gt;        
+        Apache Cordova Team   
+     &lt;/author&gt;    
+     &lt;content src=&quot;index.html&quot; /&gt;    
+     &lt;plugin name=&quot;cordova-plugin-whitelist&quot; version=&quot;1&quot; /&gt;
+     &lt;access origin=&quot;*&quot; /&gt;    
+     &lt;allow-intent href=&quot;http://*/*&quot; /&gt;   
+     &lt;allow-intent href=&quot;https://*/*&quot; /&gt;    
+     &lt;allow-intent href=&quot;tel:*&quot; /&gt;    
+     &lt;allow-intent href=&quot;sms:*&quot; /&gt;        
+     &lt;allow-intent href=&quot;mailto:*&quot; /&gt;    
+     &lt;allow-intent href=&quot;geo:*&quot; /&gt;    
+     &lt;platform name=&quot;android&quot;&gt;        
+         &lt;allow-intent href=&quot;market:*&quot; /&gt;   
+     &lt;/platform&gt;    
+      &lt;platform name=&quot;ios&quot;&gt;      
+           &lt;allow-intent href=&quot;itms:*&quot; /&gt;        
+           &lt;allow-intent href=&quot;itms-apps:*&quot; /&gt;    
+    &lt;/platform&gt;
+ &lt;/widget&gt;
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;以下所有步骤默认已安装node及平台SDK&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在项目的根目录下的config.xml文件是Cordoval应用程序的行为的许多方面的全局配置文件。这个平台无关的XML文件是基于W3C的打包Web应用程序（窗口小部件）规范的安排，并扩展到指定的核心cordovaAPI功能，插件和特定于平台的设置，包含了调用本地API，自定义插件，屏幕Orientation，Fullscreen等关键配置。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://cordova.apache.org/docs/en/latest/config_ref/index.html&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;widget&quot;&gt;&lt;a href=&quot;#widget&quot; class=&quot;headerlink&quot; title=&quot;widget&quot;&gt;&lt;/a&gt;widget&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;属性&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;类型&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;id&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;string&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;指定应用程序的反向域标识符和版本的主/次/补丁符号表示其完整版本号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;version&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;string&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;在主要/次要/补丁符号表示的完整版本号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;versionCode&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;string&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;另一版本为Android。有关详细信息，请参阅的Android版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;ios-CFBundleVersion&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;string&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;对应xcode project中CFBundleVersion&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;osx-CFBundleVersion&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;string&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;对应xcode project中CFBundleVersion&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+    
+    </summary>
+    
+      <category term="Cordova" scheme="http://yoursite.com/categories/Cordova/"/>
+    
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cordova学习之开发环境搭建</title>
+    <link href="http://yoursite.com/2017/01/17/Cordova%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>http://yoursite.com/2017/01/17/Cordova学习之开发环境搭建/</id>
+    <published>2017-01-17T01:52:56.000Z</published>
+    <updated>2017-01-17T02:02:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Mac端开发环境搭建"><a href="#Mac端开发环境搭建" class="headerlink" title="Mac端开发环境搭建"></a>Mac端开发环境搭建</h2><p>安装Cordova CLI：</p>
+<pre><code>sudo npm install -g cordova
+</code></pre><p>安装指定版本的cordova：</p>
+<pre><code>sudo npm install -g cordova@3.1.0-0.2.0
+</code></pre><p>查看当前版本：</p>
+<pre><code>cordova -v
+</code></pre><p>查找最新的cordova版本：</p>
+<pre><code>npm info cordova version
+</code></pre><a id="more"></a>
+<h2 id="创建APP"><a href="#创建APP" class="headerlink" title="创建APP"></a>创建APP</h2><pre><code>cordova create hello com.example.hello HelloWorld
+</code></pre><h2 id="添加平台"><a href="#添加平台" class="headerlink" title="添加平台"></a>添加平台</h2><p>首先进入项目根目录，为项目添加目标平台，并确保他们保存在了config.xml中：</p>
+<pre><code>cordova platform add ios --save
+</code></pre><p>检查你当前平台设置状况：</p>
+<pre><code>cordova platform ls
+</code></pre><p>移除平台可以使用如下命令：</p>
+<pre><code>cordova platform remove ios --save
+</code></pre><p>运行add或者remove平台的命令将会影响项目 platforms的内容，在这个目录中每个指定平台都有一个子目录。 </p>
+<blockquote>
+<p>注意:在你使用CLI创建应用的时候，不要修改/platforms/目录中的任何文件。当准备构建应用或者重新安装插件时这个目录通常会被重写。</p>
+</blockquote>
+<h2 id="构建APP"><a href="#构建APP" class="headerlink" title="构建APP"></a>构建APP</h2><p>为所有添加的平台构建：</p>
+<pre><code>cordova build
+</code></pre><p>指定平台构建：</p>
+<pre><code>cordova build ios
+</code></pre><h2 id="运行APP"><a href="#运行APP" class="headerlink" title="运行APP"></a>运行APP</h2><pre><code>cordova run ios
+</code></pre><p>当手机连接到电脑会直接运行到手机，否则将会运行在模拟器上，如果要运行到手机上需要配好证书，不然会签名错误。</p>
+<h2 id="添加插件"><a href="#添加插件" class="headerlink" title="添加插件"></a>添加插件</h2><p>如果APP需要调用硬件需要添加插件。</p>
+<p>一个插件通过JavascriptAPI暴露原生SDK功能。插件通常由npm分发，你可以搜索他们在 <a href="http://cordova.axuer.com/plugins/" target="_blank" rel="external">插件搜索页</a>。一些关键的API由Apache Cordova开源项目提供并且这些插件是作为核心插件API的。你也可以使用CLI启动搜索页：</p>
+<pre><code>cordova plugin search camera
+</code></pre><p>添加camera插件：</p>
+<pre><code>cordova plugin add cordova-plugin-camera
+</code></pre><h2 id="更新Cordova和项目"><a href="#更新Cordova和项目" class="headerlink" title="更新Cordova和项目"></a>更新Cordova和项目</h2><p>更新cordova：</p>
+<pre><code>sudo npm update -g cordova
+</code></pre><p>更新完cordova后，更新目标项目的平台：</p>
+<pre><code>cordova platform update ios --save
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Mac端开发环境搭建&quot;&gt;&lt;a href=&quot;#Mac端开发环境搭建&quot; class=&quot;headerlink&quot; title=&quot;Mac端开发环境搭建&quot;&gt;&lt;/a&gt;Mac端开发环境搭建&lt;/h2&gt;&lt;p&gt;安装Cordova CLI：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo npm install -g cordova
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装指定版本的cordova：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo npm install -g cordova@3.1.0-0.2.0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;查看当前版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cordova -v
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;查找最新的cordova版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm info cordova version
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Cordova" scheme="http://yoursite.com/categories/Cordova/"/>
+    
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>GitHub和GitLab多帐号下设置ssh key</title>

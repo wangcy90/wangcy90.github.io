@@ -1,0 +1,1423 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="教程," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="James Notes" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="以下所有步骤默认已安装node及平台SDK官方文档
+
+Syntaxcordova &amp;lt;command&amp;gt; [options] -- [platformOpts]
+全局命令
+
+
+命令
+描述
+
+
+
+
+create
+创建项目
+
+
+help
+帮助
+
+
+telemetry
+打开或关闭telemetry collection">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cordova学习之Command-line-interface">
+<meta property="og:url" content="http://yoursite.com/2017/01/17/Cordova学习之Command-line-interface/index.html">
+<meta property="og:site_name" content="James Notes">
+<meta property="og:description" content="以下所有步骤默认已安装node及平台SDK官方文档
+
+Syntaxcordova &amp;lt;command&amp;gt; [options] -- [platformOpts]
+全局命令
+
+
+命令
+描述
+
+
+
+
+create
+创建项目
+
+
+help
+帮助
+
+
+telemetry
+打开或关闭telemetry collection">
+<meta property="og:updated_time" content="2017-01-17T06:50:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cordova学习之Command-line-interface">
+<meta name="twitter:description" content="以下所有步骤默认已安装node及平台SDK官方文档
+
+Syntaxcordova &amp;lt;command&amp;gt; [options] -- [platformOpts]
+全局命令
+
+
+命令
+描述
+
+
+
+
+create
+创建项目
+
+
+help
+帮助
+
+
+telemetry
+打开或关闭telemetry collection">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/17/Cordova学习之Command-line-interface/"/>
+
+
+  <title> Cordova学习之Command-line-interface | James Notes </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">James Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">That which does not kill us makes us stronger.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Cordova学习之Command-line-interface
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-17T12:45:52+08:00" content="2017-01-17">
+              2017-01-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Cordova/" itemprop="url" rel="index">
+                    <span itemprop="name">Cordova</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/17/Cordova学习之Command-line-interface/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/17/Cordova学习之Command-line-interface/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/17/Cordova学习之Command-line-interface/" class="leancloud_visitors" data-flag-title="Cordova学习之Command-line-interface">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>以下所有步骤默认已安装node及平台SDK<br><a href="https://cordova.apache.org/docs/en/latest/reference/cordova-cli/index.html" target="_blank" rel="external">官方文档</a></p>
+</blockquote>
+<h3 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h3><pre><code>cordova &lt;command&gt; [options] -- [platformOpts]
+</code></pre><h3 id="全局命令"><a href="#全局命令" class="headerlink" title="全局命令"></a>全局命令</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">create</td>
+<td style="text-align:center">创建项目</td>
+</tr>
+<tr>
+<td style="text-align:center">help</td>
+<td style="text-align:center">帮助</td>
+</tr>
+<tr>
+<td style="text-align:center">telemetry</td>
+<td style="text-align:center">打开或关闭telemetry collection</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h3 id="项目命令"><a href="#项目命令" class="headerlink" title="项目命令"></a>项目命令</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">info</td>
+<td style="text-align:center">查看项目信息</td>
+</tr>
+<tr>
+<td style="text-align:center">requirements</td>
+<td style="text-align:center">检查并打印指定平台的所有安装要求</td>
+</tr>
+<tr>
+<td style="text-align:center">platform</td>
+<td style="text-align:center">管理项目平台</td>
+</tr>
+<tr>
+<td style="text-align:center">plugin</td>
+<td style="text-align:center">管理项目插件</td>
+</tr>
+<tr>
+<td style="text-align:center">prepare</td>
+<td style="text-align:center">将文件复制到平台中进行构建</td>
+</tr>
+<tr>
+<td style="text-align:center">compile</td>
+<td style="text-align:center">编译项目</td>
+</tr>
+<tr>
+<td style="text-align:center">clean</td>
+<td style="text-align:center">清除旧的编译</td>
+</tr>
+<tr>
+<td style="text-align:center">run</td>
+<td style="text-align:center">运行项目（包括prepare &amp;&amp; compile）</td>
+</tr>
+<tr>
+<td style="text-align:center">serve</td>
+<td style="text-align:center">使用本地Web服务器运行项目（包括prepare）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-d or –verbose</td>
+<td style="text-align:center">输出更详细的输出到你的shell。 通过调用cordova.on（’log’，function（）{}）或cordova.on（’warn’，function（）{}将cordova-cli用作节点模块，还可以订阅log和warn事件。 ）</td>
+</tr>
+<tr>
+<td style="text-align:center">-v or –version</td>
+<td style="text-align:center">打印cordova-cli安装版本</td>
+</tr>
+<tr>
+<td style="text-align:center">–no-update-notifier</td>
+<td style="text-align:center">禁用更新检查。 或在〜/ .config / configstore / update-notifier-cordova.json中设置“optOut”：true，或者使用任何值设置NO_UPDATE_NOTIFIER环境变量（请参阅update-notifier docs中的详细信息）。</td>
+</tr>
+<tr>
+<td style="text-align:center">–nohooks</td>
+<td style="text-align:center">禁止执行钩子（使用RegExp钩子模式作为参数）</td>
+</tr>
+<tr>
+<td style="text-align:center">–no-telemetry    Disable</td>
+<td style="text-align:center">禁用当前命令的遥测收集</td>
+</tr>
+</tbody>
+</table>
+<h3 id="平台特定选项"><a href="#平台特定选项" class="headerlink" title="平台特定选项"></a>平台特定选项</h3><p>某些命令具有特定于特定平台的选项（platformOpts）。 它们可以通过’ - ‘分隔符提供给cordova-cli，该分隔符停止cordova-lib模块中的命令解析，并通过其余选项让平台解析。</p>
+<pre><code># Create a cordova project
+cordova create myApp com.myCompany.myApp myApp
+cd myApp
+# Add camera plugin to the project and remember that in config.xml
+cordova plugin add cordova-plugin-camera --save
+# Add camera plugin to the project and remember that in config.xml. Use npm install to fetch.
+cordova plugin add cordova-plugin-camera --save --fetch
+# Add android platform to the project and remember that in config.xml
+cordova platform add android --save
+# Add android platform to the project and remember that in config.xml. Use npm install to fetch.
+cordova platform add android --save --fetch
+# Check to see if your system is configured for building android platform.
+cordova requirements android
+# Build the android and emit verbose logs.
+cordova build android --verbose
+# Run the project on the android platform.
+cordova run android
+# Build for android platform in release mode with specified signing parameters.
+cordova build android --release -- --keystore=&quot;..\android.keystore&quot; --storePassword=android --alias=mykey
+</code></pre><h3 id="cordova-create-command"><a href="#cordova-create-command" class="headerlink" title="cordova create command"></a>cordova create command</h3><p>Syntax</p>
+<pre><code>cordova create path [id [name [config]]] [options]
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">path</td>
+<td style="text-align:center">创建项目的目标路径</td>
+</tr>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">默认id为io.cordova.hellocordova</td>
+</tr>
+<tr>
+<td style="text-align:center">name</td>
+<td style="text-align:center">项目名称，默认为HelloCordova</td>
+</tr>
+<tr>
+<td style="text-align:center">config</td>
+<td style="text-align:center">JSON字符串，其键/值将包含在<path></path> /。cordova / config.json中</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–template</td>
+<td style="text-align:center">使用位于本地，NPM或GitHub中的自定义模板</td>
+</tr>
+<tr>
+<td style="text-align:center">–copy-from\</td>
+<td style="text-align:center">–src</td>
+</tr>
+<tr>
+<td style="text-align:center">–link-to</td>
+<td style="text-align:center">为指定www目录创建符号链接而不创建副本</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cordova-platform-command"><a href="#cordova-platform-command" class="headerlink" title="cordova platform command"></a>cordova platform command</h3><p>管理cordova平台 - 允许您添加，删除，更新，列出和检查更新。 运行添加或删除平台的命令会影响项目的platforms目录的内容</p>
+<p>Syntax</p>
+<pre><code>cordova {platform | platforms} [
+    add &lt;platform-spec&gt; [...] {--save | link=&lt;path&gt; | --fetch } |
+    {remove | rm}  platform [...] {--save | --fetch}|
+    {list | ls}  |
+    check |
+    save |
+    update ]
+</code></pre><h5 id="add-lt-platform-spec-gt-…"><a href="#add-lt-platform-spec-gt-…" class="headerlink" title="add &lt;platform-spec&gt; […]"></a>add &lt;platform-spec&gt; […]</h5><p>添加平台</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–save</td>
+<td style="text-align:center">使用<engine>标签安装它们后，将&lt;platform-spec&gt;保存到config.xml中</engine></td>
+</tr>
+<tr>
+<td style="text-align:center">–link=&lt;path&gt;</td>
+<td style="text-align:center">当&lt;platform-spec&gt;是本地路径时，直接链接平台库而不是制作其副本（支持因平台而异;对平台开发有用）</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">使用npm install获取平台并将其存储到应用程序node_modules目录中</td>
+</tr>
+</tbody>
+</table>
+<h5 id="remove-lt-platform-gt-…"><a href="#remove-lt-platform-gt-…" class="headerlink" title="remove &lt;platform&gt; […]"></a>remove &lt;platform&gt; […]</h5><p>移除平台</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–save</td>
+<td style="text-align:center">在删除指定的平台后，从config.xml中删除它们</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">使用npm卸载删除该平台，并将其从应用程序node_modules目录中删除</td>
+</tr>
+</tbody>
+</table>
+<h5 id="update-platform-…"><a href="#update-platform-…" class="headerlink" title="update platform […]"></a>update platform […]</h5><p>更新平台</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–save</td>
+<td style="text-align:center">更新config.xml中指定的版本</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">使用npm install获取平台并将其存储到应用程序node_modules目录中</td>
+</tr>
+</tbody>
+</table>
+<h5 id="list"><a href="#list" class="headerlink" title="list"></a>list</h5><p>列出所有已安装和可用的平台</p>
+<h5 id="check"><a href="#check" class="headerlink" title="check"></a>check</h5><p>列出可以通过cordova-cli平台更新的平台</p>
+<h5 id="save"><a href="#save" class="headerlink" title="save"></a>save</h5><p>保存添加到config.xml的所有平台的<platform-spec></platform-spec></p>
+<pre><code>#添加Android和ios平台的固定版本，并将下载的版本保存到config.xml
+cordova platform add android ios --save
+#添加Android和ios平台的固定版本，并将下载的版本保存到config.xml。 使用npm install安装到项目并将其存储在apps node_modules目录中
+cordova platform add android ios --save --fetch
+#添加android平台与semver版本^ 5.0.0并保存到config.xml
+cordova platform add android@^5.0.0 --save
+#通过将指定的git repo和checkout克隆到4.0.0标记来添加平台
+cordova platform add https://github.com/myfork/cordova-
+android.git#4.0.0
+#使用名为android的本地目录添加平台
+cordova platform add ../android
+#使用指定的tarball添加平台
+cordova platform add ../cordova-android.tgz
+#从项目和config.xml中删除android平台
+cordova platform rm android --save
+#从项目和config.xml中删除android平台。 运行npm uninstall将其从node_modules目录中删除
+cordova platform rm android --save --fetch
+#列出具有版本号的可用和已安装的平台。 这在报告问题时可用于查找版本号
+cordova platform ls
+#将当前添加到项目的所有平台的版本保存到config.xml中
+cordova platform save
+</code></pre><h3 id="cordova-plugin-command"><a href="#cordova-plugin-command" class="headerlink" title="cordova plugin command"></a>cordova plugin command</h3><p>Syntax</p>
+<pre><code>cordova {plugin | plugins} [
+    add &lt;plugin-spec&gt; [..] {--searchpath=&lt;directory&gt; | --noregistry | --link | --save | --browserify | --force | --fetch} |
+    {remove | rm} {&lt;pluginid&gt; | &lt;name&gt;} --save --fetch |
+    {list | ls} |
+    search [&lt;keyword&gt;] |
+    save |
+]
+</code></pre><h5 id="add-lt-plugin-spec-gt-…"><a href="#add-lt-plugin-spec-gt-…" class="headerlink" title="add &lt;plugin-spec&gt; […]"></a>add &lt;plugin-spec&gt; […]</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–searchpath &lt;directory&gt;</td>
+<td style="text-align:center">当通过ID查找插件时，在打开注册表之前查看此目录及其每个子目录。 可以指定多个搜索路径。 在基于* nix的系统中使用’：’作为分隔符，’;’ 为Windows</td>
+</tr>
+<tr>
+<td style="text-align:center">–noregistry</td>
+<td style="text-align:center">不要在注册表中搜索插件</td>
+</tr>
+<tr>
+<td style="text-align:center">–link</td>
+<td style="text-align:center">从本地路径安装时，创建符号链接，而不是复制文件。 文件链接的程度因平台而异。 有用的插件开发</td>
+</tr>
+<tr>
+<td style="text-align:center">–save</td>
+<td style="text-align:center">将&lt;plugin-spec&gt;作为插件元素的一部分保存到config.xml中</td>
+</tr>
+<tr>
+<td style="text-align:center">–browserify</td>
+<td style="text-align:center">在构建时使用browserify而不是运行时编译插件JS</td>
+</tr>
+<tr>
+<td style="text-align:center">–force</td>
+<td style="text-align:center">在版本6.1中引入。 强制从插件复制源文件，即使目标目录中已存在相同的文件</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">使用npm install获取插件并将其存储到应用程序node_modules目录中</td>
+</tr>
+</tbody>
+</table>
+<h5 id="remove-…"><a href="#remove-…" class="headerlink" title="remove  […]"></a>remove  […]</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">–save</td>
+<td style="text-align:center">从config.xml中删除指定的插件</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">使用npm卸载删除插件，并将其从应用程序node_modules目录中删除</td>
+</tr>
+</tbody>
+</table>
+<h5 id="list-1"><a href="#list-1" class="headerlink" title="list"></a>list</h5><p>列出当前安装的插件</p>
+<h5 id="search-lt-keyword-gt-…"><a href="#search-lt-keyword-gt-…" class="headerlink" title="search [&lt;keyword&gt;] […]"></a>search [&lt;keyword&gt;] […]</h5><p><a href="http://plugins.cordova.io" target="_blank" rel="external">搜索查找与关键字匹配的插件</a></p>
+<h5 id="save-1"><a href="#save-1" class="headerlink" title="save"></a>save</h5><p>保存当前添加到项目中的所有插件的&lt;plugin-spec&gt;</p>
+<pre><code>#将cordova-plugin-camera和cordova-plugin-file添加到项目并保存到config.xml。 使用../plugins目录搜索插件
+cordova plugin add cordova-plugin-camera cordova-plugin-file --save --searchpath ../plugins
+#添加cordova插件摄像头与semver版本^ 2.0.0并保存到config.xml
+cordova plugin add cordova-plugin-camera@^2.0.0 --save
+#添加cordova插件摄像头与semver版本^ 2.0.0和npm安装它。 它将存储在node_modules目录中
+cordova plugin add cordova-plugin-camera@^2.0.0 --fetch
+#克隆指定的git repo，checkout到标签2.1.0，在plugin目录中找到plugin.xml，并将其添加到项目中。 将plugin-spec保存到config.xml
+cordova plugin add https://github.com/apache/cordova-plugin-camera.git#2.1.0:plugin --save
+#从指定的本地目录添加插件
+cordova plugin add ../cordova-plugin-camera
+#从指定的tarball文件添加插件
+cordova plugin add ../cordova-plugin-camera.tgz --save
+#从项目和config.xml中删除插件
+cordova plugin rm camera --save
+#从项目中删除插件和npm卸载它。 从node_modules目录中删除它
+cordova plugin rm camera --fetch
+#列出项目中安装的所有插件
+cordova plugin ls
+</code></pre><p>插件冲突：<br>添加在plugin.xml文件中使用edit-config标记的插件时，可能会发生冲突插件。 edit-config允许插件添加或替换XML元素的属性。</p>
+<p>如果多个插件尝试修改相同的XML元素，则此功能可能会导致应用程序出现问题。已经实现冲突检测以防止添加插件，所以一个插件不会尝试覆盖另一个插件的编辑配置更改。发现编辑配置中的冲突并且不会添加插件时，将抛出错误。错误消息将提及所有冲突必须解决之前，可以添加插件。解决编辑配置冲突的一个选项是更改受影响的插件的plugin.xml，以便它们不会修改相同的XML元素。另一个选项是使用–force标志强制添加插件。此选项应谨慎使用，因为它忽略冲突检测，并将覆盖与其他插件的所有冲突，因此可能会使其他插件处于坏状态。</p>
+<p>有关管理edit-config，解决冲突和示例的信息，请参阅<a href="https://cordova.apache.org/docs/en/latest/plugin_ref/spec.html#edit-config" target="_blank" rel="external">plugin.xml指南</a>。</p>
+<h3 id="cordova-prepare-command"><a href="#cordova-prepare-command" class="headerlink" title="cordova prepare command"></a>cordova prepare command</h3><p>Syntax</p>
+<pre><code>cordova prepare [&lt;platform&gt; [..]] [--browserify | --fetch]
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;platform&gt; [..]</td>
+<td style="text-align:center">准备的平台名称。 如果未指定，则将构建所有平台</td>
+</tr>
+<tr>
+<td style="text-align:center">–browserify</td>
+<td style="text-align:center">在构建时使用browserify而不是运行时编译插件JS</td>
+</tr>
+<tr>
+<td style="text-align:center">–fetch</td>
+<td style="text-align:center">当恢复插件或平台时，fetch将npm安装缺少的模块</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cordova-compile-command"><a href="#cordova-compile-command" class="headerlink" title="cordova compile command"></a>cordova compile command</h3><p>cordova编译是cordova编译命令的一个子集。 它只执行编译步骤而不做准备。 通常调用cordova build而不是这个命令 - 但是，这个阶段对于允许使用钩子扩展很有用。</p>
+<p>Syntax</p>
+<pre><code>cordova build [&lt;platform&gt; [...]]
+    [--debug|--release]
+    [--device|--emulator|--target=&lt;targetName&gt;]
+    [--buildConfig=&lt;configfile&gt;]
+    [--browserify]
+    [-- &lt;platformOpts&gt;]
+</code></pre><h3 id="cordova-build-command"><a href="#cordova-build-command" class="headerlink" title="cordova build command"></a>cordova build command</h3><p>cordova的快捷方式编译+ cordova编译所有/指定的平台。 允许您为指定的平台构建应用程序。</p>
+<p>Syntax</p>
+<pre><code>cordova build [&lt;platform&gt; [...]]
+    [--debug|--release]
+    [--device|--emulator]
+    [--buildConfig=&lt;configfile&gt;]
+    [--browserify]
+    [-- &lt;platformOpts&gt;]
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;platform&gt; [..]</td>
+<td style="text-align:center">要构建的平台名称。 如果未指定，则将构建所有平台</td>
+</tr>
+<tr>
+<td style="text-align:center">–debug</td>
+<td style="text-align:center">执行调试生成。 这通常转换为正在构建的底层平台的调试模式</td>
+</tr>
+<tr>
+<td style="text-align:center">–release</td>
+<td style="text-align:center">执行发布版本。 这通常转换为正在构建的底层平台的释放模式</td>
+</tr>
+<tr>
+<td style="text-align:center">–device</td>
+<td style="text-align:center">为设备构建</td>
+</tr>
+<tr>
+<td style="text-align:center">–emulator</td>
+<td style="text-align:center">为模拟器构建</td>
+</tr>
+<tr>
+<td style="text-align:center">–buildConfig=&lt;configFile&gt;</td>
+<td style="text-align:center">默认值：cordova根目录中的build.json。 使用指定的构建配置文件。 build.json文件用于指定参数来自定义应用程序构建过程，尤其是与签名包相关</td>
+</tr>
+<tr>
+<td style="text-align:center">–browserify</td>
+<td style="text-align:center">在构建时使用browserify而不是运行时编译插件JS</td>
+</tr>
+<tr>
+<td style="text-align:center">–&lt;platformOpts&gt;</td>
+<td style="text-align:center">要提供特定于平台的选项，必须在 - separator之后包括它们。 查看平台指南文档的更多详细信息</td>
+</tr>
+</tbody>
+</table>
+<pre><code>#在调试模式下为Android和Windows平台构建部署到设备
+cordova build android windows --debug --device
+#在发布模式下为Android平台构建并使用指定的构建配置
+cordova build android --release --buildConfig=..\myBuildConfig.json
+#在发布模式下为Android平台构建，并将自定义平台选项传递到Android构建过程
+cordova build android --release -- --keystore=&quot;..\android.keystore&quot; --storePassword=android --alias=mykey
+</code></pre><h3 id="cordova-run-command"><a href="#cordova-run-command" class="headerlink" title="cordova run command"></a>cordova run command</h3><p>cordova的快捷方式编译+ cordova编译所有/指定的平台。 允许您为指定的平台构建应用程序。</p>
+<p>Syntax</p>
+<pre><code>cordova build [&lt;platform&gt; [...]]
+    [--debug|--release]
+    [--device|--emulator]
+    [--buildConfig=&lt;configfile&gt;]
+    [--browserify]
+    [-- &lt;platformOpts&gt;]
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">选项</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">&lt;platform&gt; [..]</td>
+<td style="text-align:center">要运行的平台名称。 如果未指定，则将运行所有平台</td>
+</tr>
+<tr>
+<td style="text-align:center">–list</td>
+<td style="text-align:center">列出可用的目标。 除非指定，否则显示设备和仿真器部署目标</td>
+</tr>
+<tr>
+<td style="text-align:center">–debug</td>
+<td style="text-align:center">部署调试版本。 这是默认行为，除非指定了–release</td>
+</tr>
+<tr>
+<td style="text-align:center">–release</td>
+<td style="text-align:center">部署发布版本</td>
+</tr>
+<tr>
+<td style="text-align:center">–noprepare</td>
+<td style="text-align:center">跳过准备（在Cordova v6.2或更高版本中提供）</td>
+</tr>
+<tr>
+<td style="text-align:center">–nobuild</td>
+<td style="text-align:center">跳过构建</td>
+</tr>
+<tr>
+<td style="text-align:center">–device</td>
+<td style="text-align:center">部署到设备</td>
+</tr>
+<tr>
+<td style="text-align:center">–emulator</td>
+<td style="text-align:center">部署到模拟器</td>
+</tr>
+<tr>
+<td style="text-align:center">–target</td>
+<td style="text-align:center">部署到特定的目标仿真器/设备。 使用–list显示目标选项</td>
+</tr>
+<tr>
+<td style="text-align:center">–buildConfig=&lt;configFile&gt;</td>
+<td style="text-align:center">默认值：cordova根目录中的build.json。 使用指定的构建配置文件。 build.json文件用于指定参数来自定义应用程序构建过程，尤其是与签名包相关</td>
+</tr>
+<tr>
+<td style="text-align:center">–browserify</td>
+<td style="text-align:center">在构建时使用browserify而不是运行时编译插件JS</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;platformOpts&gt;</td>
+<td style="text-align:center">要提供特定于平台的选项，必须在 - separator之后包括它们。 查看平台指南文档的更多详细信息</td>
+</tr>
+</tbody>
+</table>
+<pre><code>#在Android平台模拟器上运行名为Nexus_5_API_23_x86的当前cordova项目的发布版本。 运行时使用spcified构建配置
+cordova run android --release --buildConfig=..\myBuildConfig.json --target=Nexus_5_API_23_x86
+#使用设备或模拟器（如果没有连接设备）在Android平台上运行当前cordova项目的调试版本。 跳过做建设
+cordova run android --nobuild
+#在ios设备上运行当前cordova项目的调试版本
+cordova run ios --device
+#列出所有连接的设备和可用于运行此应用程序的可用模拟器的名称
+cordova run ios --list
+</code></pre><h3 id="cordova-emulate-command"><a href="#cordova-emulate-command" class="headerlink" title="cordova emulate command"></a>cordova emulate command</h3><p>cordova运行 - 模拟器的别名。 启动模拟器而不是设备。 有关更多详细信息，请参阅cordova运行命令文档。</p>
+<h3 id="cordova-clean-command"><a href="#cordova-clean-command" class="headerlink" title="cordova clean command"></a>cordova clean command</h3><p>通过运行特定于平台的构建清理来清理指定平台或所有平台的构建工件。</p>
+<p>Syntax</p>
+<pre><code>cordova clean [&lt;platform&gt; [...]]
+</code></pre><h3 id="cordova-requirements-command"><a href="#cordova-requirements-command" class="headerlink" title="cordova requirements command"></a>cordova requirements command</h3><p>检查并打印指定平台的所有要求（或者如果没有指定，则添加到项目的所有平台）。 如果满足每个平台的所有要求，则退出代码为0，否则以非零代码退出。</p>
+<p>这在设置用于构建特定平台的机器时是有用的。</p>
+<p>Syntax</p>
+<pre><code>cordova requirements android
+</code></pre><h3 id="cordova-info-command"><a href="#cordova-info-command" class="headerlink" title="cordova info command"></a>cordova info command</h3><p>打印有用的信息，有助于提交错误报告和获得帮助。 在项目的基础上创建info.txt文件。</p>
+<p>Syntax</p>
+<pre><code>cordova info
+</code></pre><h3 id="cordova-serve-command"><a href="#cordova-serve-command" class="headerlink" title="cordova serve command"></a>cordova serve command</h3><p>使用指定的端口或默认值8000为www / assets运行本地Web服务器。访问项目：http：// HOST_IP：PORT / PLATFORM / www</p>
+<p>Syntax</p>
+<pre><code>cordova serve [port]
+</code></pre><h3 id="cordova-telemetry-command"><a href="#cordova-telemetry-command" class="headerlink" title="cordova telemetry command"></a>cordova telemetry command</h3><p>打开或关闭遥测收集。</p>
+<p>Syntax</p>
+<pre><code>cordova telemetry [STATE(on/off)]
+</code></pre><p>当第一次运行cordova时，将显示一个询问用户选择加入或退出的定时提示。 它持续30秒，之后，如果他没有提供任何答案，用户会自动选择退出。 在CI环境中，可以设置CI环境变量，这将防止显示提示。 遥测收集也可以通过使用–no-telemetry标志在单个命令上关闭。</p>
+<h3 id="cordova-help-command"><a href="#cordova-help-command" class="headerlink" title="cordova help command"></a>cordova help command</h3><p>显示语法摘要或特定命令的帮助。</p>
+<p>Syntax</p>
+<pre><code>cordova help [command]
+cordova [command] -h
+cordova -h [command]
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward-image.jpg" alt="James Wang WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/教程/" rel="tag">#教程</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/17/Cordova学习之Plugin-xml/" rel="next" title="Cordova学习之Plugin.xml">
+                <i class="fa fa-chevron-left"></i> Cordova学习之Plugin.xml
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/17/Cordova学习之Command-line-interface/"
+           data-title="Cordova学习之Command-line-interface" data-url="http://yoursite.com/2017/01/17/Cordova学习之Command-line-interface/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="James Wang" />
+          <p class="site-author-name" itemprop="name">James Wang</p>
+          <p class="site-description motion-element" itemprop="description">iOS Developer|NodeJS|Git</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wangcy90" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/fcbd2b186b3b/timeline" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局命令"><span class="nav-number">2.</span> <span class="nav-text">全局命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目命令"><span class="nav-number">3.</span> <span class="nav-text">项目命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用选项"><span class="nav-number">4.</span> <span class="nav-text">常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平台特定选项"><span class="nav-number">5.</span> <span class="nav-text">平台特定选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-create-command"><span class="nav-number">6.</span> <span class="nav-text">cordova create command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-platform-command"><span class="nav-number">7.</span> <span class="nav-text">cordova platform command</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#add-lt-platform-spec-gt-…"><span class="nav-number">7.0.1.</span> <span class="nav-text">add <platform-spec> […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#remove-lt-platform-gt-…"><span class="nav-number">7.0.2.</span> <span class="nav-text">remove <platform> […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#update-platform-…"><span class="nav-number">7.0.3.</span> <span class="nav-text">update platform […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#list"><span class="nav-number">7.0.4.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#check"><span class="nav-number">7.0.5.</span> <span class="nav-text">check</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#save"><span class="nav-number">7.0.6.</span> <span class="nav-text">save</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-plugin-command"><span class="nav-number">8.</span> <span class="nav-text">cordova plugin command</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#add-lt-plugin-spec-gt-…"><span class="nav-number">8.0.1.</span> <span class="nav-text">add <plugin-spec> […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#remove-…"><span class="nav-number">8.0.2.</span> <span class="nav-text">remove  […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#list-1"><span class="nav-number">8.0.3.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#search-lt-keyword-gt-…"><span class="nav-number">8.0.4.</span> <span class="nav-text">search [<keyword>] […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#save-1"><span class="nav-number">8.0.5.</span> <span class="nav-text">save</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-prepare-command"><span class="nav-number">9.</span> <span class="nav-text">cordova prepare command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-compile-command"><span class="nav-number">10.</span> <span class="nav-text">cordova compile command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-build-command"><span class="nav-number">11.</span> <span class="nav-text">cordova build command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-run-command"><span class="nav-number">12.</span> <span class="nav-text">cordova run command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-emulate-command"><span class="nav-number">13.</span> <span class="nav-text">cordova emulate command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-clean-command"><span class="nav-number">14.</span> <span class="nav-text">cordova clean command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-requirements-command"><span class="nav-number">15.</span> <span class="nav-text">cordova requirements command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-info-command"><span class="nav-number">16.</span> <span class="nav-text">cordova info command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-serve-command"><span class="nav-number">17.</span> <span class="nav-text">cordova serve command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-telemetry-command"><span class="nav-number">18.</span> <span class="nav-text">cordova telemetry command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-help-command"><span class="nav-number">19.</span> <span class="nav-text">cordova help command</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">James Wang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"cy-notes"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("lKTsfDgKoupBIm8wqFx91P34-gzGzoHsz", "WgHkOHKI7EILM07FmXoOScsE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
