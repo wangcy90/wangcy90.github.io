@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-17T06:50:06.000Z</updated>
+  <updated>2017-01-20T06:58:55.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,430 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cordova学习之cordova-plugin-inappbrowser</title>
+    <link href="http://yoursite.com/2017/01/20/Cordova%E5%AD%A6%E4%B9%A0%E4%B9%8Bcordova-plugin-inappbrowser/"/>
+    <id>http://yoursite.com/2017/01/20/Cordova学习之cordova-plugin-inappbrowser/</id>
+    <published>2017-01-20T06:48:58.000Z</published>
+    <updated>2017-01-20T06:58:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>以下所有步骤默认已安装node及平台SDK<br><a href="https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-inappbrowser/index.html" target="_blank" rel="external">官方文档</a></p>
+</blockquote>
+<p>此插件提供了一个Web浏览器视图，当调用cordova.InAppBrowser.open()时显示。</p>
+<pre><code>var ref = cordova.InAppBrowser.open(&apos;http://apache.org&apos;, &apos;_blank&apos;, &apos;location=yes&apos;);
+</code></pre><p>cordova.InAppBrowser.open()函数被定义为window.open()函数的替代。现有的window.open()调用可以使用InAppBrowser窗口，通过替换window.open:</p>
+<pre><code>window.open = cordova.InAppBrowser.open;
+</code></pre><p>InAppBrowser窗口的行为类似于标准Web浏览器，并且无法访问Cordova API。 因此，如果您需要加载第三方（不受信任的）内容，而不是将其加载到Cordova主视图中，则建议使用InAppBrowser。 InAppBrowser不受白名单的约束，也不在系统浏览器中打开链接。</p>
+<a id="more"></a>
+<p>InAppBrowser默认为用户提供自己的GUI控件（back，forward，done）。</p>
+<p>deviceReady后可用。</p>
+<pre><code>document.addEventListener(&quot;deviceready&quot;, onDeviceReady, false);
+function onDeviceReady() {
+    console.log(&quot;window.open works well&quot;);
+}
+</code></pre><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code>cordova plugin add cordova-plugin-inappbrowser
+</code></pre><p>如果你想让你的应用程序中的所有页面加载通过InAppBrowser，你可以hook在初始化期间window.open。 例如：</p>
+<pre><code>document.addEventListener(&quot;deviceready&quot;, onDeviceReady, false);
+function onDeviceReady() {
+    window.open = cordova.InAppBrowser.open;
+}
+</code></pre><h3 id="cordova-InAppBrowser-open"><a href="#cordova-InAppBrowser-open" class="headerlink" title="cordova.InAppBrowser.open"></a>cordova.InAppBrowser.open</h3><p>在新的InAppBrowser实例，当前浏览器实例或系统浏览器中打开一个URL</p>
+<pre><code>var ref = cordova.InAppBrowser.open(url, target, options);
+</code></pre><h4 id="url"><a href="#url" class="headerlink" title="url"></a>url</h4><p>要加载的网址，如果URL包含Unicode字符，请调用encodeURI()。</p>
+<h4 id="target"><a href="#target" class="headerlink" title="target"></a>target</h4><p>加载网址的目标，默认为_self的可选参数。(String)</p>
+<ul>
+<li>_self: 如果URL位于白名单中，则在Cordova WebView中打开，否则将在InAppBrowser中打开。</li>
+<li>_blank: 在InAppBrowser中打开。</li>
+<li>_system: 在系统的Web浏览器中打开。</li>
+</ul>
+<h4 id="options"><a href="#options" class="headerlink" title="options"></a>options</h4><p>InAppBrowser的选项。为可选值, 默认: location = yes.<br>选项字符串不能包含任何空格，每个键值对必须用逗号分隔。 功能名称不区分大小写。 所有平台支持以下值：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">键名</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">location</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置yes或者no打开或关闭InAppBrowser的地址栏</td>
+</tr>
+</tbody>
+</table>
+<p>Android支持的值:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">键名</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">hidden</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes以创建浏览器并加载页面，但不显示它。 加载完成时触发loadstop事件。 默认为no</td>
+</tr>
+<tr>
+<td style="text-align:center">clearcache</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes以在打开新窗口之前清除浏览器的cookie缓存</td>
+</tr>
+<tr>
+<td style="text-align:center">clearsessioncache</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes以在打开新窗口之前清除会话cookie缓存</td>
+</tr>
+<tr>
+<td style="text-align:center">zoom</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes以显示Android浏览器的缩放控件，设置为no以隐藏它们。 默认为yes</td>
+</tr>
+<tr>
+<td style="text-align:center">hardwareback</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes，以使用硬件后退按钮通过InAppBrowser的历史向后导航。 如果没有上一页，InAppBrowser将关闭。 默认值为yes，因此如果希望后退按钮只关闭InAppBrowser，则必须将其设置为no</td>
+</tr>
+<tr>
+<td style="text-align:center">mediaPlaybackRequiresUserAction</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes可防止HTML5音频或视频自动播放（默认为no）</td>
+</tr>
+<tr>
+<td style="text-align:center">shouldPauseOnSuspend</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes以使InAppBrowser WebView暂停/继续与应用程序停止背景音频（这可能需要避免像CB-11013中所述的Google Play问题）</td>
+</tr>
+</tbody>
+</table>
+<p>iOS支持的值:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">键名</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">closebuttoncaption</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为字符串以用作完成按钮的标题。 注意，你需要自己本地化这个值</td>
+</tr>
+<tr>
+<td style="text-align:center">disallowoverscroll</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes或no（默认值为no）。 打开/关闭UIWebViewBounce属性</td>
+</tr>
+<tr>
+<td style="text-align:center">hidden</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes以创建浏览器并加载页面，但不显示它。 加载完成时触发loadstop事件。 默认为no</td>
+</tr>
+<tr>
+<td style="text-align:center">clearcache</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes以在打开新窗口之前清除浏览器的cookie缓存</td>
+</tr>
+<tr>
+<td style="text-align:center">clearsessioncache</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes以在打开新窗口之前清除会话cookie缓存</td>
+</tr>
+<tr>
+<td style="text-align:center">toolbar</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes或no以为InAppBrowser打开或关闭工具栏（默认为yes）</td>
+</tr>
+<tr>
+<td style="text-align:center">enableViewportScale</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes或no，以防止通过元标记缩放视口（默认为no）</td>
+</tr>
+<tr>
+<td style="text-align:center">mediaPlaybackRequiresUserAction</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes可防止HTML5音频或视频自动播放（默认为no）</td>
+</tr>
+<tr>
+<td style="text-align:center">allowInlineMediaPlayback</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes或no，允许在线HTML5媒体播放，在浏览器窗口内显示，而不是设备特定的播放界面。 HTML的视频元素还必须包含webkit-playsinline属性（默认为no）</td>
+</tr>
+<tr>
+<td style="text-align:center">keyboardDisplayRequiresUserAction</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes或no以在表单元素通过JavaScript的focus()调用接收焦点时打开键盘（默认为yes）</td>
+</tr>
+<tr>
+<td style="text-align:center">suppressesIncrementalRendering</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置为yes或no，直到在呈现之前接收到所有新的视图内容（默认为no）</td>
+</tr>
+<tr>
+<td style="text-align:center">presentationstyle</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置弹出样式pagesheet，formsheet或fullscreen，默认fullscreen</td>
+</tr>
+<tr>
+<td style="text-align:center">transitionstyle</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置过度样式fliphorizontal，crossdissolve或coververtical，默认coververtical</td>
+</tr>
+<tr>
+<td style="text-align:center">toolbarposition</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">设置toolbar位置，bottom或top，默认为bottom</td>
+</tr>
+</tbody>
+</table>
+<h3 id="InAppBrowser"><a href="#InAppBrowser" class="headerlink" title="InAppBrowser"></a>InAppBrowser</h3><p>当target设置为’_blank’时，从对cordova.InAppBrowser.open的调用返回的对象。</p>
+<p>方法：</p>
+<ul>
+<li>addEventListener</li>
+<li>removeEventListener</li>
+<li>close</li>
+<li>show</li>
+<li>hide</li>
+<li>executeScript</li>
+<li>insertCSS</li>
+</ul>
+<h4 id="InAppBrowser-addEventListener"><a href="#InAppBrowser-addEventListener" class="headerlink" title="InAppBrowser.addEventListener"></a>InAppBrowser.addEventListener</h4><p>为InAppBrowser添加事件监听</p>
+<pre><code>ref.addEventListener(eventname, callback);
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">参数名</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">eventname</td>
+<td style="text-align:center">loadstart: 开始加载时触发.<br>loadstop: 停止加载时触发.<br>loaderror: 加载出错时触发.<br>exit: 当InAppBrowser的window关闭时触发.</td>
+</tr>
+<tr>
+<td style="text-align:center">callback</td>
+<td style="text-align:center">当事件触发时执行的函数。 函数传递一个InAppBrowserEvent对象作为参数</td>
+</tr>
+</tbody>
+</table>
+<pre><code>var inAppBrowserRef;
+
+function showHelp(url) {
+
+    var target = &quot;_blank&quot;;
+
+    var options = &quot;location=yes,hidden=yes&quot;;
+
+    inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+
+    inAppBrowserRef.addEventListener(&apos;loadstart&apos;, loadStartCallBack);
+
+    inAppBrowserRef.addEventListener(&apos;loadstop&apos;, loadStopCallBack);
+
+    inAppBrowserRef.addEventListener(&apos;loaderror&apos;, loadErrorCallBack);
+
+}
+
+function loadStartCallBack() {
+
+    $(&apos;#status-message&apos;).text(&quot;loading please wait ...&quot;);
+
+}
+
+function loadStopCallBack() {
+
+    if (inAppBrowserRef != undefined) {
+
+        inAppBrowserRef.insertCSS({ code: &quot;body{font-size: 25px;&quot; });
+
+        $(&apos;#status-message&apos;).text(&quot;&quot;);
+
+        inAppBrowserRef.show();
+    }
+
+}
+
+function loadErrorCallBack(params) {
+
+    $(&apos;#status-message&apos;).text(&quot;&quot;);
+
+    var scriptErrorMesssage =
+       &quot;alert(&apos;Sorry we cannot open that page. Message from the server is : &quot;
+       + params.message + &quot;&apos;);&quot;
+
+    inAppBrowserRef.executeScript({ code: scriptErrorMesssage }, executeScriptCallBack);
+
+    inAppBrowserRef.close();
+
+    inAppBrowserRef = undefined;
+
+}
+
+function executeScriptCallBack(params) {
+
+    if (params[0] == null) {
+
+        $(&apos;#status-message&apos;).text(
+           &quot;Sorry we couldn&apos;t open that page. Message from the server is : &apos;&quot;
+           + params.message + &quot;&apos;&quot;);
+    }
+
+}
+</code></pre><h3 id="InAppBrowserEvent-Properties"><a href="#InAppBrowserEvent-Properties" class="headerlink" title="InAppBrowserEvent Properties"></a>InAppBrowserEvent Properties</h3><p>loadstart 和 loaderror 事件在浏览器中不会触发。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">事件名称</td>
+</tr>
+<tr>
+<td style="text-align:center">url</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">加载的URL</td>
+</tr>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">Number</td>
+<td style="text-align:center">错误代码，只在loaderror中</td>
+</tr>
+<tr>
+<td style="text-align:center">message</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">错误信息，只在loaderror中</td>
+</tr>
+</tbody>
+</table>
+<pre><code>var ref = cordova.InAppBrowser.open(&apos;http://apache.org&apos;, &apos;_blank&apos;, &apos;location=yes&apos;);
+ref.addEventListener(&apos;loadstart&apos;, function(event) { alert(event.url); });
+</code></pre><h3 id="InAppBrowser-removeEventListener"><a href="#InAppBrowser-removeEventListener" class="headerlink" title="InAppBrowser.removeEventListener"></a>InAppBrowser.removeEventListener</h3><p>移除事件监听。</p>
+<pre><code>ref.removeEventListener(eventname, callback);
+
+var ref = cordova.InAppBrowser.open(&apos;http://apache.org&apos;, &apos;_blank&apos;, &apos;location=yes&apos;);
+var myCallback = function(event) { alert(event.url); }
+ref.addEventListener(&apos;loadstart&apos;, myCallback);
+ref.removeEventListener(&apos;loadstart&apos;, myCallback);
+</code></pre><h3 id="InAppBrowser-close"><a href="#InAppBrowser-close" class="headerlink" title="InAppBrowser.close"></a>InAppBrowser.close</h3><p>关闭InAppBrowser window。</p>
+<pre><code>ref.close();
+</code></pre><h3 id="InAppBrowser-show"><a href="#InAppBrowser-show" class="headerlink" title="InAppBrowser.show"></a>InAppBrowser.show</h3><p>将已打开并且是隐藏状态的InAppBrowser窗口显示出来。 如果InAppBrowser已可见，则调用此方法无效。</p>
+<pre><code>var ref = cordova.InAppBrowser.open(&apos;http://apache.org&apos;, &apos;_blank&apos;, &apos;hidden=yes&apos;);
+// some time later...
+ref.show();
+</code></pre><h3 id="InAppBrowser-hide"><a href="#InAppBrowser-hide" class="headerlink" title="InAppBrowser.hide"></a>InAppBrowser.hide</h3><p>隐藏InAppBrowser窗口。 如果InAppBrowser已隐藏，则调用此方法无效。</p>
+<pre><code>var ref = cordova.InAppBrowser.open(&apos;http://apache.org&apos;, &apos;_blank&apos;);
+// some time later...
+ref.hide();
+</code></pre><h3 id="InAppBrowser-executeScript"><a href="#InAppBrowser-executeScript" class="headerlink" title="InAppBrowser.executeScript"></a>InAppBrowser.executeScript</h3><p>将JavaScript代码注入InAppBrowser窗口。</p>
+<pre><code>ref.executeScript(details, callback);
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">injectDetails</td>
+<td style="text-align:center">Object</td>
+<td style="text-align:center">要执行的代码，指定文件或代码</td>
+</tr>
+<tr>
+<td style="text-align:center">file</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">要注入的脚本的URL</td>
+</tr>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">要注入的脚本的文本</td>
+</tr>
+<tr>
+<td style="text-align:center">callback</td>
+<td style="text-align:center">function</td>
+<td style="text-align:center">在JavaScript代码注入后执行的回调函数。如果注入的脚本是类型代码，则回调将使用单个参数执行，该参数是包含在Array中的脚本的返回值。 对于多行脚本，这是最后一个语句的返回值，或最后一个计算的表达式</td>
+</tr>
+</tbody>
+</table>
+<pre><code>var ref = cordova.InAppBrowser.open(&apos;http://apache.org&apos;, &apos;_blank&apos;, &apos;location=yes&apos;);
+ref.addEventListener(&apos;loadstop&apos;, function() {
+    ref.executeScript({file: &quot;myscript.js&quot;});
+});
+</code></pre><p>浏览器中仅支持代码不支持文件。</p>
+<h3 id="InAppBrowser-insertCSS"><a href="#InAppBrowser-insertCSS" class="headerlink" title="InAppBrowser.insertCSS"></a>InAppBrowser.insertCSS</h3><p>在InAppBrowser窗口中注入CSS。</p>
+<pre><code>var ref = cordova.InAppBrowser.open(&apos;http://apache.org&apos;, &apos;_blank&apos;, &apos;location=yes&apos;);
+ref.addEventListener(&apos;loadstop&apos;, function() {
+    ref.insertCSS({file: &quot;mystyles.css&quot;});
+});
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">injectDetails</td>
+<td style="text-align:center">Object</td>
+<td style="text-align:center">要执行的代码，指定文件或代码</td>
+</tr>
+<tr>
+<td style="text-align:center">file</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">要注入的stylesheet的URL</td>
+</tr>
+<tr>
+<td style="text-align:center">code</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">要注入的stylesheet的文本</td>
+</tr>
+<tr>
+<td style="text-align:center">callback</td>
+<td style="text-align:center">function</td>
+<td style="text-align:center">在CSS代码注入后执行的回调函数。</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;以下所有步骤默认已安装node及平台SDK&lt;br&gt;&lt;a href=&quot;https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-inappbrowser/index.html&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;此插件提供了一个Web浏览器视图，当调用cordova.InAppBrowser.open()时显示。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var ref = cordova.InAppBrowser.open(&amp;apos;http://apache.org&amp;apos;, &amp;apos;_blank&amp;apos;, &amp;apos;location=yes&amp;apos;);
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;cordova.InAppBrowser.open()函数被定义为window.open()函数的替代。现有的window.open()调用可以使用InAppBrowser窗口，通过替换window.open:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;window.open = cordova.InAppBrowser.open;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;InAppBrowser窗口的行为类似于标准Web浏览器，并且无法访问Cordova API。 因此，如果您需要加载第三方（不受信任的）内容，而不是将其加载到Cordova主视图中，则建议使用InAppBrowser。 InAppBrowser不受白名单的约束，也不在系统浏览器中打开链接。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Cordova" scheme="http://yoursite.com/categories/Cordova/"/>
+    
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Cordova学习之Command-line-interface</title>
