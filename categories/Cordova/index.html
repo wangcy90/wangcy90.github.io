@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
 
 
@@ -21,6 +22,7 @@
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -74,7 +76,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -86,7 +88,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -99,6 +101,7 @@
 <meta property="og:url" content="http://yoursite.com/categories/Cordova/index.html">
 <meta property="og:site_name" content="James Notes">
 <meta property="og:description" content="iOS|RN|Vue|ionic|NodeJS|Git">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="James Notes">
 <meta name="twitter:description" content="iOS|RN|Vue|ionic|NodeJS|Git">
@@ -109,10 +112,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -145,12 +150,6 @@
 
 
 
-
-
-
-
-
-
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -160,7 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -206,8 +205,18 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -217,7 +226,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -226,18 +235,8 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-guestbook">
-          <a href="/guestbook" rel="section">
+          <a href="/guestbook/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
             
@@ -264,14 +263,19 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>Cordova<small>分类</small>
-      </h1>
-    </div>
+  
+  
+  
+  <div class="post-block category">
 
-    
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>Cordova<small>分类</small>
+        </h1>
+      </div>
+
       
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -298,8 +302,8 @@
   </article>
 
 
-    
       
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -326,8 +330,8 @@
   </article>
 
 
-    
       
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -354,8 +358,8 @@
   </article>
 
 
-    
       
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -382,8 +386,8 @@
   </article>
 
 
-    
       
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -410,8 +414,13 @@
   </article>
 
 
-    
-  </section>
+      
+    </div>
+
+  </div>
+  
+  
+  
 
   
 
@@ -436,6 +445,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -444,19 +454,22 @@
 
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="James Wang" />
-          <p class="site-author-name" itemprop="name">James Wang</p>
-           
-              <p class="site-description motion-element" itemprop="description">iOS|RN|Vue|ionic|NodeJS|Git</p>
           
+            <img class="site-author-image" itemprop="image"
+              src="/images/avatar.jpg"
+              alt="James Wang" />
+          
+            <p class="site-author-name" itemprop="name">James Wang</p>
+            <p class="site-description motion-element" itemprop="description">iOS|RN|Vue|ionic|NodeJS|Git</p>
         </div>
+
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
+            
+              <a href="/archives/">
+            
                 <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -495,19 +508,13 @@
               <span class="links-of-author-item">
                 <a href="https://github.com/wangcy90" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
               </span>
             
               <span class="links-of-author-item">
                 <a href="http://www.jianshu.com/users/fcbd2b186b3b/timeline" target="_blank" title="简书">
                   
-                    <i class="fa fa-fw fa-book"></i>
-                  
-                  简书
-                </a>
+                    <i class="fa fa-fw fa-book"></i>简书</a>
               </span>
             
           
@@ -546,28 +553,31 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2016 - 
+  &copy;  2016 &mdash; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">James Wang</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -633,32 +643,32 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
   
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -688,10 +698,6 @@
 
 
 
-  
-
-
-
 
 
 
@@ -704,7 +710,7 @@
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
   <script>AV.initialize("lKTsfDgKoupBIm8wqFx91P34-gzGzoHsz", "WgHkOHKI7EILM07FmXoOScsE");</script>
   <script>
     function showTime(Counter) {
