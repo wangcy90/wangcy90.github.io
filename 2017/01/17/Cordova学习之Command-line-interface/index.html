@@ -45,38 +45,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
 
 
   <meta name="keywords" content="教程," />
@@ -84,11 +73,6 @@
 
 
 
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -115,11 +99,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -1013,11 +997,14 @@ cordova -h [command]
 
 
           
-  <div class="comments" id="comments">
-    
+
+  
+    <div class="comments" id="comments">
       <div id="lv-container" data-id="city" data-uid="MTAyMC8yODg5My81NDYz"></div>
-    
-  </div>
+    </div>
+
+  
+
 
 
         </div>
@@ -1040,98 +1027,99 @@ cordova -h [command]
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          
-            <img class="site-author-image" itemprop="image"
-              src="/images/avatar.jpg"
-              alt="James Wang" />
-          
-            <p class="site-author-name" itemprop="name">James Wang</p>
-            <p class="site-description motion-element" itemprop="description">iOS|RN|Vue|ionic|NodeJS|Git</p>
-        </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <a href="/archives/">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="James Wang" />
             
-                <span class="site-state-item-count">10</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/wangcy90" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>GitHub</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/users/fcbd2b186b3b/timeline" target="_blank" title="简书">
-                  
-                    <i class="fa fa-fw fa-book"></i>简书</a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-          <div class="cc-license motion-element" itemprop="license">
-            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
-              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
-            </a>
+              <p class="site-author-name" itemprop="name">James Wang</p>
+              <p class="site-description motion-element" itemprop="description">iOS|RN|Vue|ionic|NodeJS|Git</p>
           </div>
-        
 
-        
-        
+          <nav class="site-state motion-element">
 
-        
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wangcy90" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.jianshu.com/users/fcbd2b186b3b/timeline" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-book"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
       </section>
 
       
@@ -1144,7 +1132,7 @@ cordova -h [command]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局命令"><span class="nav-number">2.</span> <span class="nav-text">全局命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目命令"><span class="nav-number">3.</span> <span class="nav-text">项目命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用选项"><span class="nav-number">4.</span> <span class="nav-text">常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平台特定选项"><span class="nav-number">5.</span> <span class="nav-text">平台特定选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-create-command"><span class="nav-number">6.</span> <span class="nav-text">cordova create command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-platform-command"><span class="nav-number">7.</span> <span class="nav-text">cordova platform command</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#add-lt-platform-spec-gt-…"><span class="nav-number">7.0.1.</span> <span class="nav-text">add <platform-spec> […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#remove-lt-platform-gt-…"><span class="nav-number">7.0.2.</span> <span class="nav-text">remove <platform> […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#update-platform-…"><span class="nav-number">7.0.3.</span> <span class="nav-text">update platform […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#list"><span class="nav-number">7.0.4.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#check"><span class="nav-number">7.0.5.</span> <span class="nav-text">check</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#save"><span class="nav-number">7.0.6.</span> <span class="nav-text">save</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-plugin-command"><span class="nav-number">8.</span> <span class="nav-text">cordova plugin command</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#add-lt-plugin-spec-gt-…"><span class="nav-number">8.0.1.</span> <span class="nav-text">add <plugin-spec> […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#remove-…"><span class="nav-number">8.0.2.</span> <span class="nav-text">remove  […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#list-1"><span class="nav-number">8.0.3.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#search-lt-keyword-gt-…"><span class="nav-number">8.0.4.</span> <span class="nav-text">search [<keyword>] […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#save-1"><span class="nav-number">8.0.5.</span> <span class="nav-text">save</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-prepare-command"><span class="nav-number">9.</span> <span class="nav-text">cordova prepare command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-compile-command"><span class="nav-number">10.</span> <span class="nav-text">cordova compile command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-build-command"><span class="nav-number">11.</span> <span class="nav-text">cordova build command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-run-command"><span class="nav-number">12.</span> <span class="nav-text">cordova run command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-emulate-command"><span class="nav-number">13.</span> <span class="nav-text">cordova emulate command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-clean-command"><span class="nav-number">14.</span> <span class="nav-text">cordova clean command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-requirements-command"><span class="nav-number">15.</span> <span class="nav-text">cordova requirements command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-info-command"><span class="nav-number">16.</span> <span class="nav-text">cordova info command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-serve-command"><span class="nav-number">17.</span> <span class="nav-text">cordova serve command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-telemetry-command"><span class="nav-number">18.</span> <span class="nav-text">cordova telemetry command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-help-command"><span class="nav-number">19.</span> <span class="nav-text">cordova help command</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax"><span class="nav-number">1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局命令"><span class="nav-number">2.</span> <span class="nav-text">全局命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目命令"><span class="nav-number">3.</span> <span class="nav-text">项目命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用选项"><span class="nav-number">4.</span> <span class="nav-text">常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平台特定选项"><span class="nav-number">5.</span> <span class="nav-text">平台特定选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-create-command"><span class="nav-number">6.</span> <span class="nav-text">cordova create command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-platform-command"><span class="nav-number">7.</span> <span class="nav-text">cordova platform command</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#add-lt-platform-spec-gt-…"><span class="nav-number">7.0.1.</span> <span class="nav-text">add &lt;platform-spec&gt; […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#remove-lt-platform-gt-…"><span class="nav-number">7.0.2.</span> <span class="nav-text">remove &lt;platform&gt; […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#update-platform-…"><span class="nav-number">7.0.3.</span> <span class="nav-text">update platform […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#list"><span class="nav-number">7.0.4.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#check"><span class="nav-number">7.0.5.</span> <span class="nav-text">check</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#save"><span class="nav-number">7.0.6.</span> <span class="nav-text">save</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-plugin-command"><span class="nav-number">8.</span> <span class="nav-text">cordova plugin command</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#add-lt-plugin-spec-gt-…"><span class="nav-number">8.0.1.</span> <span class="nav-text">add &lt;plugin-spec&gt; […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#remove-…"><span class="nav-number">8.0.2.</span> <span class="nav-text">remove  […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#list-1"><span class="nav-number">8.0.3.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#search-lt-keyword-gt-…"><span class="nav-number">8.0.4.</span> <span class="nav-text">search [&lt;keyword&gt;] […]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#save-1"><span class="nav-number">8.0.5.</span> <span class="nav-text">save</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-prepare-command"><span class="nav-number">9.</span> <span class="nav-text">cordova prepare command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-compile-command"><span class="nav-number">10.</span> <span class="nav-text">cordova compile command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-build-command"><span class="nav-number">11.</span> <span class="nav-text">cordova build command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-run-command"><span class="nav-number">12.</span> <span class="nav-text">cordova run command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-emulate-command"><span class="nav-number">13.</span> <span class="nav-text">cordova emulate command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-clean-command"><span class="nav-number">14.</span> <span class="nav-text">cordova clean command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-requirements-command"><span class="nav-number">15.</span> <span class="nav-text">cordova requirements command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-info-command"><span class="nav-number">16.</span> <span class="nav-text">cordova info command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-serve-command"><span class="nav-number">17.</span> <span class="nav-text">cordova serve command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-telemetry-command"><span class="nav-number">18.</span> <span class="nav-text">cordova telemetry command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cordova-help-command"><span class="nav-number">19.</span> <span class="nav-text">cordova help command</span></a></li></ol></div>
             
 
           </div>
@@ -1164,12 +1152,9 @@ cordova -h [command]
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2016 &mdash; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">James Wang</span>
 
@@ -1177,11 +1162,17 @@ cordova -h [command]
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
 
 
         
@@ -1201,6 +1192,8 @@ cordova -h [command]
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -1235,57 +1228,65 @@ cordova -h [command]
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -1321,6 +1322,10 @@ cordova -h [command]
       })(document, 'script');
     </script>
   
+
+
+
+
 
 
 
@@ -1446,6 +1451,9 @@ cordova -h [command]
 
   
 
+  
+
+  
   
 
   
