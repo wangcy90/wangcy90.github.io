@@ -364,7 +364,7 @@
 
       
         <blockquote>
-<p>以下所有步骤默认已安装node及平台SDK<br><a href="https://cordova.apache.org/docs/en/latest/reference/cordova-cli/index.html" target="_blank" rel="external">官方文档</a></p>
+<p>以下所有步骤默认已安装node及平台SDK<br><a href="https://cordova.apache.org/docs/en/latest/reference/cordova-cli/index.html" target="_blank" rel="noopener">官方文档</a></p>
 </blockquote>
 <h3 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h3><pre><code>cordova &lt;command&gt; [options] -- [platformOpts]
 </code></pre><h3 id="全局命令"><a href="#全局命令" class="headerlink" title="全局命令"></a>全局命令</h3><table>
@@ -695,7 +695,7 @@ cordova platform save
 </tbody>
 </table>
 <h5 id="list-1"><a href="#list-1" class="headerlink" title="list"></a>list</h5><p>列出当前安装的插件</p>
-<h5 id="search-lt-keyword-gt-…"><a href="#search-lt-keyword-gt-…" class="headerlink" title="search [&lt;keyword&gt;] […]"></a>search [&lt;keyword&gt;] […]</h5><p><a href="http://plugins.cordova.io" target="_blank" rel="external">搜索查找与关键字匹配的插件</a></p>
+<h5 id="search-lt-keyword-gt-…"><a href="#search-lt-keyword-gt-…" class="headerlink" title="search [&lt;keyword&gt;] […]"></a>search [&lt;keyword&gt;] […]</h5><p><a href="http://plugins.cordova.io" target="_blank" rel="noopener">搜索查找与关键字匹配的插件</a></p>
 <h5 id="save-1"><a href="#save-1" class="headerlink" title="save"></a>save</h5><p>保存当前添加到项目中的所有插件的&lt;plugin-spec&gt;</p>
 <pre><code>#将cordova-plugin-camera和cordova-plugin-file添加到项目并保存到config.xml。 使用../plugins目录搜索插件
 cordova plugin add cordova-plugin-camera cordova-plugin-file --save --searchpath ../plugins
@@ -717,7 +717,7 @@ cordova plugin rm camera --fetch
 cordova plugin ls
 </code></pre><p>插件冲突：<br>添加在plugin.xml文件中使用edit-config标记的插件时，可能会发生冲突插件。 edit-config允许插件添加或替换XML元素的属性。</p>
 <p>如果多个插件尝试修改相同的XML元素，则此功能可能会导致应用程序出现问题。已经实现冲突检测以防止添加插件，所以一个插件不会尝试覆盖另一个插件的编辑配置更改。发现编辑配置中的冲突并且不会添加插件时，将抛出错误。错误消息将提及所有冲突必须解决之前，可以添加插件。解决编辑配置冲突的一个选项是更改受影响的插件的plugin.xml，以便它们不会修改相同的XML元素。另一个选项是使用–force标志强制添加插件。此选项应谨慎使用，因为它忽略冲突检测，并将覆盖与其他插件的所有冲突，因此可能会使其他插件处于坏状态。</p>
-<p>有关管理edit-config，解决冲突和示例的信息，请参阅<a href="https://cordova.apache.org/docs/en/latest/plugin_ref/spec.html#edit-config" target="_blank" rel="external">plugin.xml指南</a>。</p>
+<p>有关管理edit-config，解决冲突和示例的信息，请参阅<a href="https://cordova.apache.org/docs/en/latest/plugin_ref/spec.html#edit-config" target="_blank" rel="noopener">plugin.xml指南</a>。</p>
 <h3 id="cordova-prepare-command"><a href="#cordova-prepare-command" class="headerlink" title="cordova prepare command"></a>cordova prepare command</h3><p>Syntax</p>
 <pre><code>cordova prepare [&lt;platform&gt; [..]] [--browserify | --fetch]
 </code></pre><table>

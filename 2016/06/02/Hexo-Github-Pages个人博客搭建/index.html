@@ -346,20 +346,20 @@
 <a id="more"></a>
 <p>1.安装nodeJS</p>
 <blockquote>
-<p>从<a href="https://nodejs.org/en/" target="_blank" rel="external">nodeJS官网</a>下载 LTS版本的pkg安装包，双击安装</p>
+<p>从<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodeJS官网</a>下载 LTS版本的pkg安装包，双击安装</p>
 </blockquote>
 <p>2.Mac默认已经安装了Git，故不再讲解Git安装方法<br>3.安装Hero</p>
 <blockquote>
-<p>首先新建一个文件夹用于存放博客的文件，当然你也可以不建这个文件夹<br>mkdir hexo<br>进入创建好的文件夹我的文件夹为hexo<br>cd hexo<br>安装hexo cli<br>sudo npm install -g hexo-cli<br>安装完成后执行<br>hexo init blog<br>cd blog<br>npm install<br>hexo g # 或hexo generate<br>hexo s # 或hexo server<br>之后打开<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 就可以看到你的博客已经搭建完成，当然这只是本地的</p>
+<p>首先新建一个文件夹用于存放博客的文件，当然你也可以不建这个文件夹<br>mkdir hexo<br>进入创建好的文件夹我的文件夹为hexo<br>cd hexo<br>安装hexo cli<br>sudo npm install -g hexo-cli<br>安装完成后执行<br>hexo init blog<br>cd blog<br>npm install<br>hexo g # 或hexo generate<br>hexo s # 或hexo server<br>之后打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 就可以看到你的博客已经搭建完成，当然这只是本地的</p>
 </blockquote>
-<p>4.关于hexo一些命令请前往<a href="https://hexo.io/" target="_blank" rel="external">hexo官方文档</a>查看</p>
-<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>启动后你看到的是hero的默认主题landscape,我博客的主题是next<br>这里是<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">hexo支持的主题列表</a>，你可以选择你喜欢的，按照下面的方法更换<br><strong>接下来所有的命令都要在blog路径下执行，否则会不成功，具体怎么不成功，你到别的路径下执行了就知道了</strong></p>
+<p>4.关于hexo一些命令请前往<a href="https://hexo.io/" target="_blank" rel="noopener">hexo官方文档</a>查看</p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>启动后你看到的是hero的默认主题landscape,我博客的主题是next<br>这里是<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">hexo支持的主题列表</a>，你可以选择你喜欢的，按照下面的方法更换<br><strong>接下来所有的命令都要在blog路径下执行，否则会不成功，具体怎么不成功，你到别的路径下执行了就知道了</strong></p>
 <blockquote>
-<p>cd blog<br>hexo clean<br>git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a> themes/next<br>vi _config.yml<br>修改theme为next<br>hexo g # 生成<br>ctrl+c #要把之前你启动的服务停掉<br>hexo s # 重新启动本地服务</p>
+<p>cd blog<br>hexo clean<br>git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> themes/next<br>vi _config.yml<br>修改theme为next<br>hexo g # 生成<br>ctrl+c #要把之前你启动的服务停掉<br>hexo s # 重新启动本地服务</p>
 </blockquote>
-<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><p><a href="http://theme-next.iissnan.com/theme-settings.html#categories-page" title="next主题配置" target="_blank" rel="external">NexT主题配置</a></p>
-<h2 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h2><p>这里是<a href="https://pages.github.com/" target="_blank" rel="external">Github Pages官方介绍</a>，一个github帐号唯一对应一个名为username/username.github.io的仓库用来存放个人博客，你可以通过<code>http://username.github.io</code>来访问你的博客。username和你的github的username对应。<br><strong>如何创建仓库我就不说了，不会的自行百度</strong></p>
-<h2 id="部署hexo到github"><a href="#部署hexo到github" class="headerlink" title="部署hexo到github"></a>部署hexo到github</h2><p>这里是<a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">官方的教程</a>，但在部署前我们要修改配置文件，在配置文件末尾加入下面的代码:</p>
+<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><p><a href="http://theme-next.iissnan.com/theme-settings.html#categories-page" title="next主题配置" target="_blank" rel="noopener">NexT主题配置</a></p>
+<h2 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h2><p>这里是<a href="https://pages.github.com/" target="_blank" rel="noopener">Github Pages官方介绍</a>，一个github帐号唯一对应一个名为username/username.github.io的仓库用来存放个人博客，你可以通过<code>http://username.github.io</code>来访问你的博客。username和你的github的username对应。<br><strong>如何创建仓库我就不说了，不会的自行百度</strong></p>
+<h2 id="部署hexo到github"><a href="#部署hexo到github" class="headerlink" title="部署hexo到github"></a>部署hexo到github</h2><p>这里是<a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">官方的教程</a>，但在部署前我们要修改配置文件，在配置文件末尾加入下面的代码:</p>
 <blockquote>
 <p>deploy:<br>type: git<br>repo:<code>https://github.com/&#39;你的用户名&#39;/&#39;你的用户名&#39;.github.io.git</code>#这里其实就是你前面创建的那个仓库的地址，直接复制下来就好了<br>branch: master</p>
 </blockquote>
@@ -371,7 +371,7 @@
 <blockquote>
 <p>cd blog<br>hexo d</p>
 </blockquote>
-<h2 id="部署后的操作"><a href="#部署后的操作" class="headerlink" title="部署后的操作"></a>部署后的操作</h2><p>当部署完成后我们就可以通过之前说过的链接来访问了，同样你也可以绑定自己的域名，然后再根据你自己的主题去配置评论或者访问次数的东西，next主题配置这些东西可以查看<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">next官方文档</a></p>
+<h2 id="部署后的操作"><a href="#部署后的操作" class="headerlink" title="部署后的操作"></a>部署后的操作</h2><p>当部署完成后我们就可以通过之前说过的链接来访问了，同样你也可以绑定自己的域名，然后再根据你自己的主题去配置评论或者访问次数的东西，next主题配置这些东西可以查看<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">next官方文档</a></p>
 <h2 id="常用命令总结"><a href="#常用命令总结" class="headerlink" title="常用命令总结"></a>常用命令总结</h2><blockquote>
 <p>hexo g  #生成，一般写完博客执行该命令重新生成<br>hexo s  #启动本地服务<br>hexo d  #发布到github<br>hexo new “blog name”  #新建文章，执行该命令后会有一个地址，去markdown语法编辑那个文件就好了<br>hexo new page “page name“  #新建页面，比如生成tags页面</p>
 </blockquote>

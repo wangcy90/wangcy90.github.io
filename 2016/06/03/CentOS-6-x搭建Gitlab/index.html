@@ -367,8 +367,8 @@
 <p>GitLab是一个使用 Ruby on Rails 开发的开源应用程序，与Github类似，能够浏览源代码，管理缺陷和注释，非常适合在团队内部使用。<br>GitLab服务有以下8部分组成：<br>1.Packages / Dependencies<br>2.Ruby<br>3.System Users<br>4.Database：MySql/PostgreSQL<br>5.Redis<br>6.GitLab<br>7.Web Server：Nginx/Apache<br>8.Firewall</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h2><p>1.此教程适用于centos6.x安装gitlab<br>2.使用root帐号登录系统，如果不是root登录使用su root切换为root<br>3.你也可以参考：<br><a href="https://github.com/gitlabhq/gitlab-recipes/tree/master/install/centos" title="官方centos文档" target="_blank" rel="external"> 官方centos文档 </a><br><a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/install/installation.md" title="官方Ubuntu文档" target="_blank" rel="external"> 官方Ubuntu文档 </a></p>
-<h2 id="安装Gitlab所需要的依赖"><a href="#安装Gitlab所需要的依赖" class="headerlink" title="安装Gitlab所需要的依赖"></a>安装Gitlab所需要的依赖</h2><h3 id="Add-EPEL-repository"><a href="#Add-EPEL-repository" class="headerlink" title="Add EPEL repository"></a>Add EPEL repository</h3><p><a href="https://fedoraproject.org/wiki/EPEL" target="_blank" rel="external">EPEL</a>即Extra Packages for Enterprise Linux，这个软件仓库里有很多非常常用的软件,而且是专门针对RHEL设计的，对RHEL标准yum源是一个很好的补充，完全免费使用，由Fedora项目维护，所以如果你使用的是RHEL，或者CentOS，Scientific等RHEL系的linux，可以非常放心的使用EPEL的yum源。</p>
+<h2 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h2><p>1.此教程适用于centos6.x安装gitlab<br>2.使用root帐号登录系统，如果不是root登录使用su root切换为root<br>3.你也可以参考：<br><a href="https://github.com/gitlabhq/gitlab-recipes/tree/master/install/centos" title="官方centos文档" target="_blank" rel="noopener"> 官方centos文档 </a><br><a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/install/installation.md" title="官方Ubuntu文档" target="_blank" rel="noopener"> 官方Ubuntu文档 </a></p>
+<h2 id="安装Gitlab所需要的依赖"><a href="#安装Gitlab所需要的依赖" class="headerlink" title="安装Gitlab所需要的依赖"></a>安装Gitlab所需要的依赖</h2><h3 id="Add-EPEL-repository"><a href="#Add-EPEL-repository" class="headerlink" title="Add EPEL repository"></a>Add EPEL repository</h3><p><a href="https://fedoraproject.org/wiki/EPEL" target="_blank" rel="noopener">EPEL</a>即Extra Packages for Enterprise Linux，这个软件仓库里有很多非常常用的软件,而且是专门针对RHEL设计的，对RHEL标准yum源是一个很好的补充，完全免费使用，由Fedora项目维护，所以如果你使用的是RHEL，或者CentOS，Scientific等RHEL系的linux，可以非常放心的使用EPEL的yum源。</p>
 <p>下载并安装GPG key</p>
 <pre><code>wget -O /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6 https://www.fedoraproject.org/static/0608B895.txt
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
@@ -610,7 +610,7 @@ service nginx start
 <h2 id="防火墙配置"><a href="#防火墙配置" class="headerlink" title="防火墙配置"></a>防火墙配置</h2><pre><code>lokkit -s http -s https -s ssh
 service iptables restart
 </code></pre><h2 id="完成安装"><a href="#完成安装" class="headerlink" title="完成安装"></a>完成安装</h2><blockquote>
-<p>现在可以在浏览器中访问<a href="http://localhost" target="_blank" rel="external">http://localhost</a><br>如果没有问题是可以访问成功的，如果有问题请看“问题记录”</p>
+<p>现在可以在浏览器中访问<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a><br>如果没有问题是可以访问成功的，如果有问题请看“问题记录”</p>
 </blockquote>
 <h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><blockquote>
 <p>如果nginx出现502 Bad gateWay，可以去查看gitlab和nginx的日志</p>

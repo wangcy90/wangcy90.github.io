@@ -385,8 +385,8 @@
 <p>ssh-keygen -t rsa<br>scp /root/.ssh/id_rsa.pub root@ 服务器机器IP:/root/.ssh/authorized_keys</p>
 </blockquote>
 <p>既然是远程登录，那么不管是输密码登录的还是没输密码登录的，只要是可以远程登录你机器的人，就意味着可以访问该git账户下的所有文件，所以这是不安全的，所以我们要控制每个人的权限。</p>
-<h2 id="使用Gitolite实现权限控制"><a href="#使用Gitolite实现权限控制" class="headerlink" title="使用Gitolite实现权限控制"></a>使用<a href="https://github.com/sitaramc/gitolite" title="Gitolite" target="_blank" rel="external">Gitolite</a>实现权限控制</h2><blockquote>
-<p><a href="https://github.com/sitaramc/gitolite" title="Gitolite" target="_blank" rel="external">Gitolite</a> 轻量级，开源项目，使用SSH公钥认证，能做到分支级的权限控制<br>配置方法详见<a href="https://github.com/sitaramc/gitolite" title="Gitolite" target="_blank" rel="external">Gitolite官方说明</a>，在此就不再赘述。</p>
+<h2 id="使用Gitolite实现权限控制"><a href="#使用Gitolite实现权限控制" class="headerlink" title="使用Gitolite实现权限控制"></a>使用<a href="https://github.com/sitaramc/gitolite" title="Gitolite" target="_blank" rel="noopener">Gitolite</a>实现权限控制</h2><blockquote>
+<p><a href="https://github.com/sitaramc/gitolite" title="Gitolite" target="_blank" rel="noopener">Gitolite</a> 轻量级，开源项目，使用SSH公钥认证，能做到分支级的权限控制<br>配置方法详见<a href="https://github.com/sitaramc/gitolite" title="Gitolite" target="_blank" rel="noopener">Gitolite官方说明</a>，在此就不再赘述。</p>
 </blockquote>
 
       
